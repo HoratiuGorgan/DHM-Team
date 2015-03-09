@@ -27,6 +27,9 @@ public class LoginPage extends PageObject {
 
     @FindBy(css="[type='submit']")
     private WebElementFacade loginButton;
+    
+    @FindBy(css="a[href*='http://192.168.1.68:9090/vacation']")
+    private WebElementFacade clickVacationButton;
 
     public void enter_username(String username) {
     	userInput.sendKeys(username);
@@ -37,6 +40,10 @@ public class LoginPage extends PageObject {
     
     public void login_click() {
         loginButton.click();
+    }
+    
+    public void click_vacation_button(){
+    	clickVacationButton.click();
     }
 
 }

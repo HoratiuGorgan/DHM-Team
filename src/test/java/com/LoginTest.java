@@ -37,6 +37,7 @@ public class LoginTest {
     	endUser.enter_username("dragoscampean");
     	endUser.enter_password("Dragos.campean19");
     	endUser.login_click();
+    	endUser.opens_vacation_tab();
     	
     }
     

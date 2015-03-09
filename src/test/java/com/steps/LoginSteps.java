@@ -37,5 +37,10 @@ public class LoginSteps extends ScenarioSteps {
         loginPage.open();
     }
     
+    @Step
+    public void opens_vacation_tab(){
+    	loginPage.click_vacation_button();
+    }
+    
 
 }
