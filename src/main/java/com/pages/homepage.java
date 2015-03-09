@@ -16,7 +16,7 @@ import java.util.List;
 
 import static ch.lambdaj.Lambda.convert;
 
-@DefaultUrl("http://192.168.1.68:9090")
+@DefaultUrl("http://192.168.1.68:9090/vacation")
 public class homepage extends PageObject{
 	
 	@FindBy(css="[id='sign-in']")
