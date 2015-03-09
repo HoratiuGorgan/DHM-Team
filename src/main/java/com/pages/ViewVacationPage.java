@@ -31,7 +31,7 @@ public class ViewVacationPage extends PageObject {
 	@FindBy(css="input[id$='viewVacationsFirstName']")
 	private WebElementFacade inputFirstName;
 	
-	@FindBy(css="a[href$='orderByCol=status&_evovacation_WAR_EvoVacationportlet_orderByType=asc']")
+	@FindBy(css="a[href*='orderByCol=status&_evovacation_WAR_EvoVacationportlet_orderByType']")
 	private WebElementFacade sortByStatus;
 	
 	public void click_ViewVacations(){
