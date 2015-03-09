@@ -34,8 +34,8 @@ public class LoginTest {
     @Test 
     public void login_action(){
     	endUser.is_the_login_page();
-    	endUser.enter_username("malu.ioan1");
-    	endUser.enter_password("evoportal");
+    	endUser.enter_username("dragoscampean");
+    	endUser.enter_password("Dragos.campean19");
     	endUser.login_click();
     	
     }
