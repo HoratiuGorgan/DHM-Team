@@ -23,7 +23,7 @@ public class LoginPage extends PageObject {
     private WebElementFacade userInput;
     
     @FindBy(id="_58_password")
-    private WebElementFacade passwordInput;
+    private WebElementFacade passwordInput; 
 
     @FindBy(css="[type='submit']")
     private WebElementFacade loginButton;
