@@ -7,6 +7,8 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.junit.annotations.UseTestDataFrom;
+import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 import net.thucydides.junit.runners.ThucydidesRunner;
 
 import org.junit.Test;
@@ -18,7 +20,8 @@ import com.steps.LoginSteps;
 import com.steps.VacationsReportSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
-@RunWith(ThucydidesRunner.class)
+@RunWith(ThucydidesParameterizedRunner.class)
+@UseTestDataFrom("resources/dataDriven.csv")
 public class VacationsReportTestFilterByMonthYear {
 
     @Managed(uniqueSession = true)
@@ -32,19 +35,20 @@ public class VacationsReportTestFilterByMonthYear {
     @Steps
     public LoginSteps endUser1;
 
+    public String username,password,pageTitle;
    // @Issue("#VACATION-1")
     
     @Test 
     public void search_vacations_report_action() throws InterruptedException{
     	endUser1.is_the_login_page();
     	//getDriver().manage().window().maximize();
-    	endUser1.enter_username("dragoscampean");
-    	endUser1.enter_password("Dragos.campean19");
+    	endUser1.enter_username(username);
+    	endUser1.enter_password(password);
     	endUser1.login_click();
 
     	endUser1.opens_vacation_tab();
     	endUser.clicksViewVacations();
-    	endUser.pageTitleCheck("View Vacations");
+    	endUser.pageTitleCheck(pageTitle);
     	/*endUser.clicksVacationsReport();
     	endUser.clickMonth();
     	endUser.selectsMonth("June");*/
