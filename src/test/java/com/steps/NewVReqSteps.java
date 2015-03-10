@@ -1,20 +1,13 @@
 package com.steps;
 
-import com.pages.LoginPage;
-import com.pages.homepage;
 import com.pages.NewVReqPage;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
-import static ch.lambdaj.Lambda.join;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasItem;
 
 public class NewVReqSteps extends ScenarioSteps {
-	
-	NewVReqPage NewVReq;
+
+NewVReqPage NewVReq;
 	
 	@Step	
     public void newVReq_click(){
@@ -51,10 +44,6 @@ public class NewVReqSteps extends ScenarioSteps {
     	NewVReq.selectChild_click();
     }
     	
-    	
-    	
-    
-    
     
     @Step
     public void enter_comment(String comment) {
@@ -70,4 +59,6 @@ public class NewVReqSteps extends ScenarioSteps {
     
     	
     }
+	
+	
 
