@@ -15,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
 import com.steps.LoginSteps;
+import com.requirements.Constants;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -33,10 +34,7 @@ public class LoginTest {
 
     @Test 
     public void login_action(){
-    	endUser.is_the_login_page();
-    	endUser.enter_username("dragoscampean");
-    	endUser.enter_password("Dragos.campean19");
-    	endUser.login_click();
+    	endUser.login(Constants.USER, Constants.PASSWORD);
     	endUser.opens_vacation_tab();
     	
     }

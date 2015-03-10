@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.requirements.Constants;
 import com.steps.LoginSteps;
 import com.steps.VacationsReportSteps;
 
@@ -36,10 +37,7 @@ public class VacationsReportTest {
     
     @Test 
     public void search_vacations_report_action(){
-    	endUser1.is_the_login_page();
-    	endUser1.enter_username("dragoscampean");
-    	endUser1.enter_password("Dragos.campean19");
-    	endUser1.login_click();
+    	endUser1.login(Constants.USER, Constants.PASSWORD);
     	endUser1.opens_vacation_tab();
     	endUser.clicksVacationsReport();
     	endUser.enter_firstName("dragos");

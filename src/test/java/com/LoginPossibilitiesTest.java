@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.requirements.Constants;
 import com.steps.LoginSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
@@ -33,10 +34,7 @@ public class LoginPossibilitiesTest {
 
     @Test 
     public void login_action(){
-    	endUser.is_the_login_page();
-    	endUser.enter_username("dragoscampean");
-    	endUser.enter_password("Dragos.campean19");
-    	endUser.login_click();
+    	endUser.login(Constants.USER, Constants.PASSWORD);
     	endUser.opens_vacation_tab();
     	
     }

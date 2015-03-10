@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.requirements.Constants;
 import com.steps.LoginSteps;
 import com.steps.TrackSteps;
 import com.steps.VacationsReportSteps;
@@ -36,10 +37,7 @@ public class TrackTest {
 	  
 	  @Test
 	  public void check_tracker_menu(){
-		  user2.is_the_login_page();
-		  user2.enter_username("dragoscampean");
-		  user2.enter_password("Dragos.campean19");
-		  user2.login_click();
+		  user2.login(Constants.USER, Constants.PASSWORD);
 		  user2.opens_vacation_tab();
 		  user.click_TrackPage();
 		  

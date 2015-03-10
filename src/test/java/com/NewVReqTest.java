@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.requirements.Constants;
 import com.steps.LoginSteps;
 import com.steps.NewVReqSteps;
 
@@ -36,10 +37,7 @@ public class NewVReqTest {
 
 	 @Test 
 	    public void signInclick_action(){
-		  endUser.is_the_login_page();
-	    	endUser.enter_username("dragoscampean");
-	    	endUser.enter_password("Dragos.campean19");
-	    	endUser.login_click();
+		 	endUser.login(Constants.USER, Constants.PASSWORD);
 	    	endUser.opens_vacation_tab();
 	    	nvreqtest.is_the_vacation_page();
 	    	nvreqtest.newVReq_click();

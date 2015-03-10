@@ -54,8 +54,7 @@ public class VacationsReportSteps extends ScenarioSteps {
     
     @Step
     public void pageTitleCheck(String compareValue){
-    	vacationsReportPage.getPageTitle(compareValue);
-    	Assert.assertTrue(vacationsReportPage.getPageTitle(compareValue));
+    	Assert.assertTrue("Aceasta nu este titlul paginii corespunzatoare", vacationsReportPage.pageTitle.getText().toLowerCase().contains(compareValue.toLowerCase()));
     }
     /*@Step
     public void selectsMonth(String Month){
