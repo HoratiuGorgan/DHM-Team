@@ -3,6 +3,7 @@ package com.pages;
 import ch.lambdaj.function.convert.Converter;
 import net.thucydides.core.annotations.DefaultUrl;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ import net.thucydides.core.pages.PageObject;
 
 import java.util.List;
 
+import static org.junit.Assert.*;
 import static ch.lambdaj.Lambda.convert;
 
 @DefaultUrl("http://192.168.1.68:9090")
@@ -60,6 +62,15 @@ public class VacationsReportPage extends PageObject {
     @FindBy(css="[id='_evovacation_WAR_EvoVacationportlet_searchButton']")//
     private WebElementFacade searchButton;
     
+    @FindBy(css="a[href$='view-vacations']")
+    private WebElementFacade viewVacations;
+    public void clicksViewVacations(){
+    	viewVacations.click();
+    }
+    
+    @FindBy(css="[class='content-title']")
+    private WebElementFacade pageTitle;
+    
     public void enter_firstName(String firstname) {
     	firsttNameTab.sendKeys(firstname);
     }
@@ -83,11 +94,12 @@ public class VacationsReportPage extends PageObject {
     	//exportForMonth.waitUntilVisible();
     	exportForMonth.click();
     	exportForMonth.selectByVisibleText(Month).click();
-    	
-    	
-    	
-    	
-  
+    	 	
+    }
+    
+    public void getPageTitle(){
+    	Assert.assertTrue("It is the wrong page!", pageTitle.getText().toLowerCase().contains("view vacations".toLowerCase()));
+
     }
     /*public void clickSelectedMonth(){
     	exportForMonth.click();

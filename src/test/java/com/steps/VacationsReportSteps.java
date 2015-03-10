@@ -44,6 +44,15 @@ public class VacationsReportSteps extends ScenarioSteps {
     public void selectsMonth(String Month) throws InterruptedException{
     	vacationsReportPage.selectsMonth(Month);
     }
+    @Step
+    public void clicksViewVacations(){
+    	vacationsReportPage.clicksViewVacations();
+    }
+    
+    @Step
+    public void pageTitleCheck(String title){
+    	vacationsReportPage.getPageTitle();
+    }
     /*@Step
     public void selectsMonth(String Month){
     	vacationsReportPage.selectsMonth(Month);

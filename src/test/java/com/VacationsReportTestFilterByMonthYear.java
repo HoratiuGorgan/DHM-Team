@@ -37,19 +37,23 @@ public class VacationsReportTestFilterByMonthYear {
     @Test 
     public void search_vacations_report_action() throws InterruptedException{
     	endUser1.is_the_login_page();
+    	//getDriver().manage().window().maximize();
     	endUser1.enter_username("dragoscampean");
     	endUser1.enter_password("Dragos.campean19");
     	endUser1.login_click();
+
     	endUser1.opens_vacation_tab();
-    	endUser.clicksVacationsReport();
+    	endUser.clicksViewVacations();
+    	endUser.pageTitleCheck("View Vacations");
+    	/*endUser.clicksVacationsReport();
     	endUser.clickMonth();
-    	endUser.selectsMonth("June");
+    	endUser.selectsMonth("June");*/
     	//endUser.selectsMonth("May");
     	//endUser.clickSelectedMonth();
     	//endUser.clickYear();
     	//endUser.selectYear("2010");
     	//endUser.clicksYearh("2012");
-    	endUser.clickSearch();
+    	//endUser.clickSearch();
     	//endUser.clicksExportReport();
 
     	
