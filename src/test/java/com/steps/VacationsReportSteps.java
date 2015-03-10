@@ -1,8 +1,11 @@
 package com.steps;
 
+import org.junit.Assert;
+
 import com.pages.LoginPage;
 import com.pages.VacationsReportPage;
 import com.steps.LoginSteps;
+
 
 
 
@@ -50,8 +53,9 @@ public class VacationsReportSteps extends ScenarioSteps {
     }
     
     @Step
-    public void pageTitleCheck(String title){
-    	vacationsReportPage.getPageTitle();
+    public void pageTitleCheck(String compareValue){
+    	vacationsReportPage.getPageTitle(compareValue);
+    	Assert.assertTrue(vacationsReportPage.getPageTitle(compareValue));
     }
     /*@Step
     public void selectsMonth(String Month){

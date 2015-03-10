@@ -97,8 +97,10 @@ public class VacationsReportPage extends PageObject {
     	 	
     }
     
-    public void getPageTitle(){
-    	Assert.assertTrue("It is the wrong page!", pageTitle.getText().toLowerCase().contains("view vacations".toLowerCase()));
+    public boolean getPageTitle(String compareValue){
+    	//System.out.println(pageTitle.getText().toLowerCase().equals(compareValue.toLowerCase()));
+    	 boolean first=pageTitle.getText().toLowerCase().contains(compareValue.toLowerCase());
+    	 return first;
 
     }
     /*public void clickSelectedMonth(){
