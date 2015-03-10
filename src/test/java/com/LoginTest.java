@@ -34,10 +34,7 @@ public class LoginTest {
 
     @Test 
     public void login_action(){
-    	endUser.is_the_login_page();
-    	endUser.enter_username(Constants.USER);
-    	endUser.enter_password(Constants.PASSWORD);
-    	endUser.login_click();
+    	endUser.login(Constants.USER, Constants.PASSWORD);
     	endUser.opens_vacation_tab();
     	
     }

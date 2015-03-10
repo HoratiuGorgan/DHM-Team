@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.requirements.Constants;
 import com.steps.LoginSteps;
 import com.steps.ViewVacationsSteps;
 
@@ -35,10 +36,7 @@ public class ViewVacationTest {
 	
 	@Test
 	public void search_action(){
-		userDo1.is_the_login_page();
-		userDo1.enter_username("dragoscampean");
-		userDo1.enter_password("Dragos.campean19");
-		userDo1.login_click();
+		userDo1.login(Constants.USER, Constants.PASSWORD);
 		userDo1.opens_vacation_tab();
 		userDo.click_ViewVacations();
 		userDo.enter_LastName("gorgan");

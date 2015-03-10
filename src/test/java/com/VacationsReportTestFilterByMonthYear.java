@@ -16,6 +16,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
+import com.requirements.Constants;
 import com.steps.LoginSteps;
 import com.steps.VacationsReportSteps;
 
@@ -40,11 +41,7 @@ public class VacationsReportTestFilterByMonthYear {
     
     @Test 
     public void search_vacations_report_action() throws InterruptedException{
-    	endUser1.is_the_login_page();
-    	//getDriver().manage().window().maximize();
-    	endUser1.enter_username(username);
-    	endUser1.enter_password(password);
-    	endUser1.login_click();
+    	endUser1.login(Constants.USER, Constants.PASSWORD);
 
     	endUser1.opens_vacation_tab();
     	endUser.clicksViewVacations();
