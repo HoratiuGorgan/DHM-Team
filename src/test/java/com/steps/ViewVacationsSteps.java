@@ -1,5 +1,9 @@
 package com.steps;
 
+
+
+import org.junit.Assert;
+
 import com.pages.ViewVacationPage;
 
 import net.thucydides.core.annotations.Step;
@@ -42,5 +46,13 @@ public class ViewVacationsSteps extends ScenarioSteps {
 	public void sort_byStatus(){
 		viewVacation.sort_byStatus();
 	}
+	
+	@Step
+	public void userValidation(){
+		
+		Assert.assertTrue("The element should not be present!",viewVacation.checkThatElementDoesntExist(viewVacation.messageDisplayed) );
+	}
+	
+	
 
 }
