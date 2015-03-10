@@ -2,18 +2,21 @@ package com.pages;
 
 import ch.lambdaj.function.convert.Converter;
 import net.thucydides.core.annotations.DefaultUrl;
+
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
 import net.thucydides.core.pages.WebElementFacade;
-
 import net.thucydides.core.annotations.findby.FindBy;
-
 import net.thucydides.core.pages.PageObject;
 
 import java.util.List;
 
+import static org.junit.Assert.*;
 import static ch.lambdaj.Lambda.convert;
 
 @DefaultUrl("http://192.168.1.68:9090")
@@ -22,12 +25,16 @@ public class VacationsReportPage extends PageObject {
     @FindBy(css="a[href*='http://192.168.1.68:9090/vacation?p_p_id=evovacation_WAR_EvoVacationportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_evovacation_WAR_EvoVacationportlet_backURL=%2Fvacation&_evovacation_WAR_EvoVacationportlet_menuItem=vacation-report']")
     private WebElementFacade vacationsReport;
     
-    /*@FindBy(css="[class='aui-datepicker-month']")
-    private WebElementFacade exportForMonth; */
-    
-    /*@FindBy(css="[class='aui-datepicker-year']")
-    private WebElementFacade exportForYear; */
+//    @FindBy(css="[name='_evovacation_WAR_EvoVacationportlet_exportMonth']")
+//    private WebElementFacade exportForMonth;
 
+        
+    @FindBy(css="[class='aui-datepicker-month']")
+    private WebElementFacade exportForMonth;
+    
+    @FindBy(css="[class='aui-datepicker-year']")
+    private WebElementFacade exportForYear;
+    
     @FindBy(css="[id='_evovacation_WAR_EvoVacationportlet_approved']")//
     private WebElementFacade statusApproved;
     
@@ -55,6 +62,15 @@ public class VacationsReportPage extends PageObject {
     @FindBy(css="[id='_evovacation_WAR_EvoVacationportlet_searchButton']")//
     private WebElementFacade searchButton;
     
+    @FindBy(css="a[href$='view-vacations']")
+    private WebElementFacade viewVacations;
+    public void clicksViewVacations(){
+    	viewVacations.click();
+    }
+    
+    @FindBy(css="[class='content-title']")
+    private WebElementFacade pageTitle;
+    
     public void enter_firstName(String firstname) {
     	firsttNameTab.sendKeys(firstname);
     }
@@ -70,13 +86,33 @@ public class VacationsReportPage extends PageObject {
     	exportButton.click();
     }
     
-    /*public void clickMonth(){
+    public void clickMonth(){
     	exportForMonth.click();
-    }*/
+    }
     
-    /*public void clickMonth(){
+    public void selectsMonth(String Month){
+    	//exportForMonth.waitUntilVisible();
+    	exportForMonth.click();
+    	exportForMonth.selectByVisibleText(Month).click();
+    	 	
+    }
+    
+    public void getPageTitle(){
+    	Assert.assertTrue("It is the wrong page!", pageTitle.getText().toLowerCase().contains("view vacations".toLowerCase()));
+
+    }
+    /*public void clickSelectedMonth(){
+    	exportForMonth.click();
+    }
+    
+    public void clickYear(){
 		exportForYear.click();
-}*/
+		
+    }
+    
+    public void selectsYear(String Year){
+    	(exportForYear).selectByVisibleText(Year);
+    }*/
     
     public void clickStatusApproved() {
     	statusApproved.click();

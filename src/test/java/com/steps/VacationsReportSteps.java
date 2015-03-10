@@ -5,6 +5,7 @@ import com.pages.VacationsReportPage;
 import com.steps.LoginSteps;
 
 
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -34,6 +35,40 @@ public class VacationsReportSteps extends ScenarioSteps {
     	vacationsReportPage.clickSearch();
     	
     }
+    @Step
+    public void clickMonth(){
+    	vacationsReportPage.clickMonth();
+    }
+    
+    @Step
+    public void selectsMonth(String Month) throws InterruptedException{
+    	vacationsReportPage.selectsMonth(Month);
+    }
+    @Step
+    public void clicksViewVacations(){
+    	vacationsReportPage.clicksViewVacations();
+    }
+    
+    @Step
+    public void pageTitleCheck(String title){
+    	vacationsReportPage.getPageTitle();
+    }
+    /*@Step
+    public void selectsMonth(String Month){
+    	vacationsReportPage.selectsMonth(Month);
+    }
+    /*@Step
+    public void clickSelectedMonth(){
+    	vacationsReportPage.clickSelectedMonth();
+    }*/
+    /*@Step
+    public void clickYear(){
+    	vacationsReportPage.clickYear();
+    }
+    @Step
+    public void selectYear(String Year){
+    	vacationsReportPage.selectsYear(Year);
+    }*/
 
     /*@Step
     public void is_the_vacations_report_page() {
