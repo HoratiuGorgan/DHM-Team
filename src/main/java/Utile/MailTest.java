@@ -48,8 +48,8 @@ public class MailTest {
 	public void checkingIfMailWasReceived() throws ParseException, MessagingException, IOException{
 		loginTest.login_action();
 		newVacationTestSteps.new_vacation_open();
-		newVacationTestSteps.setStartDate(4, 6, 2015);
-		newVacationTestSteps.setEndDate(4, 8, 2015);
+		newVacationTestSteps.setStartDate(6, 4, 2015);
+		newVacationTestSteps.setEndDate(8, 4, 2015);
 		newVacationTestSteps.createANewVacation();
 		
 		String startDate="06/04/2015";

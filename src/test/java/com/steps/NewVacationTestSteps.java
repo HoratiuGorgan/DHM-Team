@@ -12,16 +12,16 @@ public class NewVacationTestSteps extends ScenarioSteps {
 	NewVacationTestPage newVacationTestPage;
 
 	@Step
-	public void setStartDate(int month, int day, int year)
+	public void setStartDate(int day, int month, int year)
 			throws ParseException {
 		newVacationTestPage.click_StartDate();
-		newVacationTestPage.settingDateByGivenParameter(month, day, year);
+		newVacationTestPage.settingDateByGivenParameter(day, month, year);
 	}
 
 	@Step
-	public void setEndDate(int month, int day, int year) throws ParseException {
+	public void setEndDate(int day, int month, int year) throws ParseException {
 		newVacationTestPage.click_EndDate();
-		newVacationTestPage.settingDateByGivenParameter(month, day, year);
+		newVacationTestPage.settingDateByGivenParameter(day, month, year);
 	}
 
 	@Step

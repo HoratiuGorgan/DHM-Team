@@ -71,8 +71,7 @@ public class NewVacationTestPage extends PageObject {
 		}
 	}
 
-	public void settingDateByGivenParameter(int month, int day, int year)
-			throws ParseException {
+	public void settingDateByGivenParameter(int day, int month, int year) throws ParseException {
 
 		Calendar calNew = Calendar.getInstance();
 		SimpleDateFormat sdfNew = new SimpleDateFormat("dd/MM/yyyy");
