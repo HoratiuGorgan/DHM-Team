@@ -23,8 +23,9 @@ import com.steps.LoginSteps;
 import com.steps.ViewVacationsSteps;
 import com.steps.newvacationtestSteps;
 
-
-@RunWith(ThucydidesRunner.class)	
+@Story(Application.Search.SearchByKeyword.class)
+@RunWith(ThucydidesParameterizedRunner.class)
+@UseTestDataFrom("resources/tipuriDeConcedii.csv")
 
 public class newvacationtestTest {
 	
@@ -42,6 +43,8 @@ public class newvacationtestTest {
 	@Steps
 	public LoginSteps createV2;
 	
+	String tipDeConcediu;
+	
 	@Test
 	public void pick_a_date() throws ParseException{
 		createV2.login("dragoscampean", "Dragos.campean19");
@@ -49,6 +52,7 @@ public class newvacationtestTest {
 		createV.new_vacation_open();
 		createV.setStartDate(1, 4, 2016);
 		createV.setEndDate(1, 8, 2016);
+		createV.clickVacationTypeCheckbox(tipDeConcediu);
 		createV.createANewVacation();
 	}
 
