@@ -27,6 +27,7 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.6.1</version>
         </dependency>
+        
         <dependency>
             <groupId>net.thucydides</groupId>
             <artifactId>thucydides-junit</artifactId>
@@ -44,6 +45,12 @@
             <artifactId>fest-assert</artifactId>
             <version>1.4</version>
         </dependency>
+        <dependency>
+	<groupId>javax.mail</groupId>
+	<artifactId>mail</artifactId>
+	<version>1.4</version>
+</dependency>
+        
         <!-- by ionut -->
         
         <dependency>
