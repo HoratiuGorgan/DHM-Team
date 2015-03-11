@@ -90,17 +90,18 @@ public class VacationsReportPage extends PageObject {
 		exportButton.click();
 	}
 
-	public void clickMonth() {
+/*	public void clickMonth() {
 		exportForMonth.click();
-	}
+	}*/
 
 	public void selectsMonth(String Month) {
-		// exportForMonth.waitUntilVisible();
-		exportForMonth.click();
-		exportForMonth.selectByVisibleText(Month).click();
+		exportForMonth.selectByVisibleText(Month);
 
 	}
+	public void selectsYear(String Year){
+		 exportForYear.selectByVisibleText(Year); 
 
+	}
 /*	public boolean getPageTitle(String compareValue) {
 		boolean first = pageTitle.getText().toLowerCase()
 				.contains(compareValue.toLowerCase());

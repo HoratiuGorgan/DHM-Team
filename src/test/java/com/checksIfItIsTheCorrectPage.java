@@ -15,17 +15,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import com.google.protobuf.TextFormat.ParseException;
 import com.requirements.Application;
 import com.requirements.Constants;
 import com.steps.LoginSteps;
 import com.steps.VacationsReportSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
-@RunWith(ThucydidesRunner.class)
-/*@RunWith(ThucydidesParameterizedRunner.class)*/
-//@UseTestDataFrom("resources/dataDriven.csv")
-public class VacationsReportTestFilterByMonthYear {
+@RunWith(ThucydidesParameterizedRunner.class)
+@UseTestDataFrom("resources/dataDriven.csv")
+public class checksIfItIsTheCorrectPage {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -38,17 +36,24 @@ public class VacationsReportTestFilterByMonthYear {
     @Steps
     public LoginSteps endUser1;
 
-/*    public String username,password,pageTitle;
+    public String username,password,pageTitle;
    // @Issue("#VACATION-1")
-*/    
+    
     @Test 
-    public void search_vacations_report_action() throws ParseException{
+    public void search_vacations_report_action() throws InterruptedException{
     	endUser1.login(Constants.USER, Constants.PASSWORD);
+
     	endUser1.opens_vacation_tab();
-    	endUser.clicksVacationsReport();
-    	endUser.selectsMonth("June");
+    	endUser.clicksViewVacations();
+    	endUser.pageTitleCheck(pageTitle);
+    	//endUser.clicksVacationsReport();
+    	//endUser.clickMonth();
+    	//endUser.selectsMonth("June");
+    	//endUser.selectsMonth("May");
+    	//endUser.clickSelectedMonth();
+    	//endUser.clickYear();
     	//endUser.selectYear("2010");
-    	endUser.selectsYear("2012");
+    	//endUser.clicksYearh("2012");
     	//endUser.clickSearch();
     	//endUser.clicksExportReport();
 

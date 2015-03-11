@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import java.text.ParseException;
 import com.requirements.Application;
 import com.requirements.Constants;
 import com.steps.LoginSteps;
@@ -36,17 +37,18 @@ public class NewVReqTest {
 	 @Issue("#VACATION-1")
 
 	 @Test 
-	    public void signInclick_action(){
+	    public void signInclick_action() throws ParseException {
 		 	endUser.login(Constants.USER, Constants.PASSWORD);
 	    	endUser.opens_vacation_tab();
 	    	nvreqtest.is_the_vacation_page();
 	    	nvreqtest.newVReq_click();
-	    	
-	    	nvreqtest.specialVacField_click();
+	    	nvreqtest.setStartDate(04,12,2015);
+	    	nvreqtest.setEndDate(05,01,2015);
+/*	    	nvreqtest.specialVacField_click();
 	    	nvreqtest.specialReason_click();
 	    	nvreqtest.comment_click();
 	    	//nvreqtest.selectChild_click();
-	    	nvreqtest.enter_comment("I become dad");
+	    	nvreqtest.enter_comment("I became a dad");*/
 	    	nvreqtest.submitVacation_click();
 	    	
 	    }

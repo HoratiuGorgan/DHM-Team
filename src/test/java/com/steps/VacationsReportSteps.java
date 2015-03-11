@@ -2,9 +2,11 @@ package com.steps;
 
 import org.junit.Assert;
 
+import com.google.protobuf.TextFormat.ParseException;
 import com.pages.LoginPage;
 import com.pages.VacationsReportPage;
 import com.steps.LoginSteps;
+
 
 
 
@@ -38,15 +40,20 @@ public class VacationsReportSteps extends ScenarioSteps {
     	vacationsReportPage.clickSearch();
     	
     }
-    @Step
+/*    @Step
     public void clickMonth(){
     	vacationsReportPage.clickMonth();
-    }
+    }*/
     
     @Step
-    public void selectsMonth(String Month) throws InterruptedException{
+    public void selectsMonth(String Month) throws ParseException {
     	vacationsReportPage.selectsMonth(Month);
     }
+    @Step
+    public void selectsYear(String Year) throws ParseException {
+    	vacationsReportPage.selectsYear(Year);
+    }
+    
     @Step
     public void clicksViewVacations(){
     	vacationsReportPage.clicksViewVacations();
