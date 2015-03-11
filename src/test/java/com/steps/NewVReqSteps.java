@@ -1,5 +1,6 @@
 package com.steps;
 
+import java.text.ParseException;
 import com.pages.NewVReqPage;
 
 import net.thucydides.core.annotations.Step;
@@ -54,6 +55,18 @@ NewVReqPage NewVReq;
     	NewVReq.submitVacation_click();
     	
     	
+    }
+    
+    @Step
+    public void setStartDate(int month, int day, int year) throws ParseException {
+    	NewVReq.clickStartDate();
+    	NewVReq.settingDateByGivenParameter(month, day, year);
+    }
+    
+    @Step
+    public void setEndDate(int month, int day, int year) throws ParseException {
+    	NewVReq.clickEndDate();
+    	NewVReq.settingDateByGivenParameter(month, day, year);
     }
     
     
