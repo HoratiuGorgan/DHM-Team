@@ -21,13 +21,13 @@ import com.requirements.Application;
 import com.requirements.Constants;
 import com.steps.LoginSteps;
 import com.steps.ViewVacationsSteps;
-import com.steps.newvacationtestSteps;
+import com.steps.NewVacationTestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/tipuriDeConcedii.csv")
 
-public class newvacationtestTest {
+public class NewVacationTestTest {
 	
 	
 	
@@ -38,22 +38,22 @@ public class newvacationtestTest {
 	public Pages page;
 	
 	@Steps
-	public newvacationtestSteps createV;
+	public NewVacationTestSteps newVacationTestSteps;
 	
 	@Steps
-	public LoginSteps createV2;
+	public LoginSteps loginSteps;
 	
 	String tipDeConcediu;
 	
 	@Test
 	public void pick_a_date() throws ParseException{
-		createV2.login("dragoscampean", "Dragos.campean19");
-		createV2.opens_vacation_tab();
-		createV.new_vacation_open();
-		createV.setStartDate(1, 4, 2016);
-		createV.setEndDate(1, 8, 2016);
-		createV.clickVacationTypeCheckbox(tipDeConcediu);
-		createV.createANewVacation();
+		loginSteps.login("dragoscampean", "Dragos.campean19");
+		loginSteps.opens_vacation_tab();
+		newVacationTestSteps.new_vacation_open();
+		newVacationTestSteps.setStartDate(1, 4, 2016);
+		newVacationTestSteps.setEndDate(1, 8, 2016);
+		newVacationTestSteps.clickVacationTypeCheckbox(tipDeConcediu);
+		newVacationTestSteps.createANewVacation();
 	}
 
 }

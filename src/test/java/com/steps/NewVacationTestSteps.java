@@ -2,41 +2,41 @@ package com.steps;
 
 import java.text.ParseException;
 
-import com.pages.newvacationtestPage;
+import com.pages.NewVacationTestPage;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
-public class newvacationtestSteps extends ScenarioSteps {
+public class NewVacationTestSteps extends ScenarioSteps {
 
-	newvacationtestPage newVtest;
+	NewVacationTestPage newVacationTestPage;
 
 	@Step
 	public void setStartDate(int month, int day, int year)
 			throws ParseException {
-		newVtest.click_StartDate();
-		newVtest.settingDateByGivenParameter(month, day, year);
+		newVacationTestPage.click_StartDate();
+		newVacationTestPage.settingDateByGivenParameter(month, day, year);
 	}
 
 	@Step
 	public void setEndDate(int month, int day, int year) throws ParseException {
-		newVtest.click_EndDate();
-		newVtest.settingDateByGivenParameter(month, day, year);
+		newVacationTestPage.click_EndDate();
+		newVacationTestPage.settingDateByGivenParameter(month, day, year);
 	}
 
 	@Step
 	public void new_vacation_open() {
-		newVtest.open_newVacation();
+		newVacationTestPage.open_newVacation();
 	}
 
 	@Step
 	public void createANewVacation() {
-		newVtest.create_newVacation();
+		newVacationTestPage.create_newVacation();
 	}
 
 	@Step
 	public void clickVacationTypeCheckbox(String vacationType) {
-		newVtest.clickVacantionCheckbox(vacationType);
+		newVacationTestPage.clickVacantionCheckbox(vacationType);
 
 	}
 }

@@ -23,7 +23,7 @@ import com.steps.VacationsReportSteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/dataDriven.csv")
-public class checksIfItIsTheCorrectPage {
+public class ChecksIfItIsTheCorrectPageTest {
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -32,30 +32,21 @@ public class checksIfItIsTheCorrectPage {
     public Pages pages;
 
     @Steps
-    public VacationsReportSteps endUser;
+    public VacationsReportSteps vacationReportSteps;
     @Steps
-    public LoginSteps endUser1;
+    public LoginSteps loginSteps;
 
     public String username,password,pageTitle;
    // @Issue("#VACATION-1")
     
     @Test 
     public void search_vacations_report_action() throws InterruptedException{
-    	endUser1.login(Constants.USER, Constants.PASSWORD);
+    	loginSteps.login(Constants.USER, Constants.PASSWORD);
 
-    	endUser1.opens_vacation_tab();
-    	endUser.clicksViewVacations();
-    	endUser.pageTitleCheck(pageTitle);
-    	//endUser.clicksVacationsReport();
-    	//endUser.clickMonth();
-    	//endUser.selectsMonth("June");
-    	//endUser.selectsMonth("May");
-    	//endUser.clickSelectedMonth();
-    	//endUser.clickYear();
-    	//endUser.selectYear("2010");
-    	//endUser.clicksYearh("2012");
-    	//endUser.clickSearch();
-    	//endUser.clicksExportReport();
+    	loginSteps.opens_vacation_tab();
+    	vacationReportSteps.clicksViewVacations();
+    	vacationReportSteps.pageTitleCheck(pageTitle);
+
 
     	
     }

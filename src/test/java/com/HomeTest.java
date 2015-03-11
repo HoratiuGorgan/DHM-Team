@@ -15,11 +15,11 @@ import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
 import com.steps.LoginSteps;
-import com.steps.homeSteps;
+import com.steps.HomeSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class homeTest {
+public class HomeTest {
 
 		@Managed(uniqueSession = true)
 	    public WebDriver webdriver;
@@ -28,14 +28,14 @@ public class homeTest {
 	    public Pages pages;
 
 		@Steps
-	    public homeSteps htest;
+	    public HomeSteps homeTest;
 
 	    @Issue("#VACATION-1")
 
 	    @Test 
 	    public void signInclick_action(){
-	    	htest.is_the_home_page();
-	    	htest.signIn_click();
+	    	homeTest.is_the_home_page();
+	    	homeTest.signIn_click();
 	    	
 	    }
 

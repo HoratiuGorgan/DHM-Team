@@ -36,21 +36,21 @@ public class ViewVacationTest {
 	public Pages page;
 	
 	@Steps
-	public ViewVacationsSteps userDo;
+	public ViewVacationsSteps viewVacationsSteps;
 	
 	@Steps
-	public LoginSteps userDo1;
+	public LoginSteps loginSteps;
 	
 	@Test
 	public void search_action(){
-		userDo1.login(Constants.USER, Constants.PASSWORD);
-		userDo1.opens_vacation_tab();
-		userDo.click_ViewVacations();
-		userDo.enter_LastName(lastname);
-		userDo.enter_FirstName(firstname);
-		userDo.click_Apply();
-		//userDo.sort_byStatus();
-		userDo.userValidation();
-		//h
+		loginSteps.login(Constants.USER, Constants.PASSWORD);
+		loginSteps.opens_vacation_tab();
+		viewVacationsSteps.click_ViewVacations();
+		viewVacationsSteps.enter_LastName(lastname);
+		viewVacationsSteps.enter_FirstName(firstname);
+		viewVacationsSteps.click_Apply();
+		viewVacationsSteps.sort_byStatus();
+		viewVacationsSteps.userValidation();
+		
 	}
 }

@@ -27,6 +27,7 @@ public class ViewVacationsSteps extends ScenarioSteps {
 	public void click_Apply(){
 		viewVacation.apply_search();
 	}
+	
 	@Step
 	public void is_the_viewVacation_page(){
 		viewVacation.open();
@@ -41,12 +42,11 @@ public class ViewVacationsSteps extends ScenarioSteps {
 	public void enter_FirstName(String firstname){
 		viewVacation.enter_FirstName(firstname);
 	}
-	
 	@Step
 	public void sort_byStatus(){
 		viewVacation.sort_byStatus();
 	}
-	
+
 	@Step
 	public void userValidation(){
 		

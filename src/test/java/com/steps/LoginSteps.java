@@ -1,15 +1,10 @@
 package com.steps;
 
-import com.pages.LoginPage;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
-import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
-import static ch.lambdaj.Lambda.join;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasItem;
+
+import com.pages.LoginPage;
 
 public class LoginSteps extends ScenarioSteps {
 

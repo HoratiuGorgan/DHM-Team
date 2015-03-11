@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
 import static ch.lambdaj.Lambda.convert;
 
 @DefaultUrl("http://192.168.1.68:9090")
-public class newvacationtestPage extends PageObject {
+public class NewVacationTestPage extends PageObject {
 
 	@FindBy(css = "a[href$='new-request']")
 	private WebElementFacade newVacationRequest;

@@ -34,23 +34,21 @@ public class VacationsReportTestFilterByMonthYear {
     public Pages pages;
 
     @Steps
-    public VacationsReportSteps endUser;
+    public VacationsReportSteps vacationsReportSteps;
     @Steps
-    public LoginSteps endUser1;
+    public LoginSteps loginSteps;
 
 /*    public String username,password,pageTitle;
    // @Issue("#VACATION-1")
 */    
     @Test 
     public void search_vacations_report_action() throws ParseException{
-    	endUser1.login(Constants.USER, Constants.PASSWORD);
-    	endUser1.opens_vacation_tab();
-    	endUser.clicksVacationsReport();
-    	endUser.selectsMonth("June");
-    	//endUser.selectYear("2010");
-    	endUser.selectsYear("2012");
-    	//endUser.clickSearch();
-    	//endUser.clicksExportReport();
+    	loginSteps.login(Constants.USER, Constants.PASSWORD);
+    	loginSteps.opens_vacation_tab();
+    	vacationsReportSteps.clicksVacationsReport();
+    	vacationsReportSteps.selectsMonth("June");
+    	vacationsReportSteps.selectsYear("2012");
+
 
     	
     }
