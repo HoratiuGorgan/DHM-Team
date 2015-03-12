@@ -45,21 +45,7 @@ public class NewVacationTestPage extends PageObject {
 
 	@FindBy(css = "[id='_evovacation_WAR_EvoVacationportlet_saveButton']")
 	private WebElementFacade submitVacation;
-
-	// lista tipuri de concedii
-
-	@FindBy(css = "[id='_evovacation_WAR_EvoVacationportlet_type_CO']")
-	private WebElementFacade VacationType1;
-
-	@FindBy(css = "[id='_evovacation_WAR_EvoVacationportlet_type_CF']")
-	private WebElementFacade VacationType2;
-
-	@FindBy(css = "[id='_evovacation_WAR_EvoVacationportlet_type_CS']")
-	private WebElementFacade VacationType3;
-
-	@FindBy(css = "[id='_evovacation_WAR_EvoVacationportlet_type_CM']")
-	private WebElementFacade VacationType4;
-
+	
 	// lista type strings
 
 	public void clickVacantionCheckbox(String vacationType) {

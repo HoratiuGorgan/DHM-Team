@@ -56,6 +56,8 @@ public class MailTest {
 		String endDate="08/04/2015";
 		
 		
+
+		//String body ="Your holiday interval is:" + startDate + " - " + endDate ;
 		String body ="Your holiday interval is: <strong>" + startDate + " - " + endDate + "</strong>.";
 	//	String body ="Please";
 		
