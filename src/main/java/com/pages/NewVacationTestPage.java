@@ -27,9 +27,21 @@ public class NewVacationTestPage extends PageObject {
 
 	@FindBy(css = "a[href$='new-request']")
 	private WebElementFacade newVacationRequest;
+	
+	@FindBy(css="tr[class='section-result'] td:nth-child(2)")
+	private WebElementFacade availableDays;
+	
+	@FindBy(css="div[class='vacation-info-row align-to-left employee-info'] b:nth-child(2)")
+	private WebElementFacade takenDays;
 
 	@FindBy(name = "startDate")
 	private WebElementFacade startDateButton;
+	
+	@FindBy(css="a[href$='menuItem=my-free-days']")
+	private WebElementFacade myFreeDaysButton;
+	
+	@FindBy(css= "input[id='_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest']")
+	private WebElementFacade withdrawButton;
 
 	@FindBy(name = "endDate")
 	private WebElementFacade endDateButton;
@@ -46,7 +58,7 @@ public class NewVacationTestPage extends PageObject {
 	@FindBy(css = "[id='_evovacation_WAR_EvoVacationportlet_saveButton']")
 	private WebElementFacade submitVacation;
 	
-	// lista type strings
+	// parcurge lista de tipuri de concedii
 
 	public void clickVacantionCheckbox(String vacationType) {
 		List<WebElement> VacationTypes = getDriver().findElements(
@@ -56,6 +68,21 @@ public class NewVacationTestPage extends PageObject {
 				type.click();
 		}
 	}
+	
+	public int getFreeDays() {
+	    String aString = availableDays.getText();
+	    String nr=aString.replaceAll("^0-9","");
+	    int aInt = Integer.parseInt(nr);
+	    return aInt;
+	   	  }
+
+	/*public boolean checkFreeDays(int freeDaysNumber) {
+		boolean equals=false;
+		if(getFreeDays()==freeDaysNumber){
+			equals=true;
+		}
+		return equals;
+	}*/
 
 	public void settingDateByGivenParameter(int day, int month, int year) throws ParseException {
 
@@ -97,6 +124,10 @@ public class NewVacationTestPage extends PageObject {
 		startDateButton.click();
 
 	}
+	
+	public void click_MyFreeDaysButton(){
+		myFreeDaysButton.click();
+	}
 
 	public void open_newVacation() {
 		newVacationRequest.click();
@@ -108,6 +139,10 @@ public class NewVacationTestPage extends PageObject {
 
 	public void create_newVacation() {
 		submitVacation.click();
+	}
+	
+	public void click_WithdrawVacation(){
+		withdrawButton.click();
 	}
 
 }

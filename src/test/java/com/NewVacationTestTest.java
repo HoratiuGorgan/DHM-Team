@@ -24,8 +24,9 @@ import com.steps.ViewVacationsSteps;
 import com.steps.NewVacationTestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
-@RunWith(ThucydidesParameterizedRunner.class)
-@UseTestDataFrom("resources/tipuriDeConcedii.csv")
+@RunWith(ThucydidesRunner.class)
+//@UseTestDataFrom("resources/tipuriDeConcedii.csv")
+//@UseTestDataFrom("resources/AvailableFreeDays.csv")
 
 public class NewVacationTestTest {
 	
@@ -43,17 +44,31 @@ public class NewVacationTestTest {
 	@Steps
 	public LoginSteps loginSteps;
 	
-	String tipDeConcediu;
+	//String tipDeConcediu;
+	
+	//int AvailableFreeDays;
 	
 	@Test
 	public void pick_a_date() throws ParseException{
-		loginSteps.login("dragoscampean", "Dragos.campean19");
+		loginSteps.login("horatiugorgan1", "Evozon.2010");
 		loginSteps.opens_vacation_tab();
+		
+		int initialFreeDays = newVacationTestSteps.getFreeDays();
+		
 		newVacationTestSteps.new_vacation_open();
-		newVacationTestSteps.setStartDate(1, 4, 2016);
-		newVacationTestSteps.setEndDate(1, 8, 2016);
-		newVacationTestSteps.clickVacationTypeCheckbox(tipDeConcediu);
+		newVacationTestSteps.setStartDate(25, 3, 2015);
+		newVacationTestSteps.setEndDate(27, 3, 2015);
+		//newVacationTestSteps.clickVacationTypeCheckbox(tipDeConcediu);
 		newVacationTestSteps.createANewVacation();
+		String requestURL = newVacationTestSteps.getBrowserURL();
+		
+		newVacationTestSteps.compareFreeDays(initialFreeDays - 3);
+		
+		newVacationTestSteps.navigateTo(requestURL);
+		
+		newVacationTestSteps.click_WithdrawVacation();
+		//newVacationTestSteps.click_MyFreeDays();
+		newVacationTestSteps.compareFreeDays(initialFreeDays);
 	}
 
 }
