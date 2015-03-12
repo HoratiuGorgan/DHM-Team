@@ -2,6 +2,7 @@ package com.pages;
 
 import ch.lambdaj.function.convert.Converter;
 import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.annotations.Step;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -25,19 +26,95 @@ import static ch.lambdaj.Lambda.convert;
 public class AcceptRejectRequstPage extends PageObject {
 	
 	@FindBy(css="a[href$='menuItem=inbox']")
-	private WebElementFacade inboxClick;
+	private WebElementFacade clickInbox;
+	
 	
 	public void clickInbox(){
-		inboxClick.click();
+		clickInbox.click();
 	}
 	
-	public void clickVacantionCheckbox(String vacationType) {
-		List<WebElement> VacationTypes = getDriver().findElements(
-				By.cssSelector("div[class='vacationTypeChoice'] label"));
-		for (WebElement type : VacationTypes) {
-			if (type.getText().toLowerCase().equals(vacationType.toLowerCase()))
-				type.click();
+	@FindBy(css="[class='aui-paginator-link aui-paginator-next-link']")
+	private WebElementFacade clickNext;
+
+	public void clickNext(){
+		clickNext.click();
+	}
+	@FindBy(css="div[class='vacation-info-row align-to-left employee-info']:last-child")
+	private WebElementFacade textDaysNumber;
+	
+	@FindBy(css="input[value='Approve']")
+	private WebElementFacade clickApprove;
+	public void clickApprove(){
+		clickApprove.click();
+	}
+	@FindBy(css="input[name='_evovacation_WAR_EvoVacationportlet_rowIds']")
+	private List<WebElement> clickCheckbox;
+	
+/*	public void clickCheckbox(){
+		clickCheckbox.click();
+	}*/
+
+	
+	//goes through the employee list and clicks the name when it gets a match
+	
+	public void goThroughRequestsList(String employeeName, String date) {
+		List<WebElement> EmployeeNames = getDriver().findElements(
+				By.cssSelector("td[class*='col-employee-name']"));
+		for (WebElement name : EmployeeNames) {
+			if (name.getText().toLowerCase().equals(employeeName.toLowerCase())){
+				
+				List<WebElement> startDate = getDriver().findElements(
+						By.cssSelector("td[class*='col-my.request.column.header.start.date']"));
+				for(int i = 0; i<startDate.size(); i++){
+					if(startDate.get(i).getText().toLowerCase().equals(date.toLowerCase())){
+						clickCheckbox.get(i).click();
+					}
+					
+				}
+				break;
+			
+			}
+				
 		}
 	}
+	boolean id=true;
+	public boolean checksTheRequestsList(String employeeName, String date) {
+		List<WebElement> EmployeeNames = getDriver().findElements(
+				By.cssSelector("td[class*='col-employee-name']"));
+		for (WebElement name : EmployeeNames) {
+			if (name.getText().toLowerCase().equals(employeeName.toLowerCase())){
+				
+				List<WebElement> startDate = getDriver().findElements(
+						By.cssSelector("td[class*='col-my.request.column.header.start.date']"));
+				for(int i = 0; i<startDate.size(); i++){
+					if(startDate.get(i).getText().toLowerCase().equals(date.toLowerCase())){
+						return false;
+					}
+										
+				}
+				
+			
+			}
+				
+		}
+		return true;
+	}
+	
+		
+/*	public void compareDaysNumber(int nrMax) {
+		String newText=textDaysNumber.getText();
+		String nr=newText.replaceAll("^0-9","");
+		int nrInt=Integer.parseInt(nr);
+		if(nrInt<nrMax)
+		{
+			clickApprove();
+		}
+		else
+		{
+			clickReject();
+			System.out.println("you don't deserve it!");
+		}
+	
+	}*/
 
 }
