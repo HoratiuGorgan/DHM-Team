@@ -28,7 +28,7 @@ public class NewVacationTestPage extends PageObject {
 	@FindBy(css = "a[href$='new-request']")
 	private WebElementFacade newVacationRequest;
 	
-	@FindBy(css="tr[class='section-result'] td:nth-child(2)")
+	@FindBy(css="[class='section-result'] td:nth-child(2)")
 	private WebElementFacade availableDays;
 	
 	@FindBy(css="div[class='vacation-info-row align-to-left employee-info'] b:nth-child(2)")
