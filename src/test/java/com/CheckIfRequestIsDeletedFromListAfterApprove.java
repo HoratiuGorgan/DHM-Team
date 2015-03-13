@@ -56,7 +56,7 @@ public class CheckIfRequestIsDeletedFromListAfterApprove {
 		loginSteps.login("dragoscampean", "Dragos.campean19");
 		loginSteps.opens_vacation_tab();
 		acceptRejectRequestSteps.clickInbox();
-		acceptRejectRequestSteps.goThroughRequestsList("haoratiu gorgan", startDate);
+		acceptRejectRequestSteps.goThroughRequestsList("horatiu gorgan", startDate);
 		acceptRejectRequestSteps.clickApprove();
 		acceptRejectRequestSteps.checksTheRequestsList("horatiu gorgan", startDate);
 		
