@@ -1,15 +1,21 @@
 package com.steps;
 
+
+
+import org.junit.Assert;
+
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.steps.ScenarioSteps;
 
 import com.pages.LoginPage;
+import com.pages.NewVacationTestPage;
 
 public class LoginSteps extends ScenarioSteps {
 
     LoginPage loginPage;
-
+    NewVacationTestPage newVacationTestPage;
+    NewVacationTestPage daysLeft;
     
     @Step
     public void enter_username(String username) {
@@ -21,6 +27,12 @@ public class LoginSteps extends ScenarioSteps {
     public void enter_password(String password) {
     	loginPage.enter_password(password);
     }
+    
+    
+
+/*    public void compareDays(){
+    	Assert.assertEquals("The two are no equal ^_^", daysNr, daysLeftJustNr);
+    }*/
     
     @Step	
     public void login_click(){
@@ -44,6 +56,21 @@ public class LoginSteps extends ScenarioSteps {
     	enter_username(username);
     	enter_password(password);
     	login_click();
+    }
+    
+    
+/*    @Step
+	public int selectVacationDaysLeft(){
+	
+	String str2=daysLeft1.replaceAll("[^0-9.]", "");
+	int daysLeftJustNr=Integer.parseInt(str2);
+	return daysLeftJustNr;
+	
+	}*/
+    
+    @Step
+    public void daysDifference(){
+    	Assert.assertEquals(newVacationTestPage.daysDifference(), newVacationTestPage.selectVacationDaysLeft());
     }
     
     
