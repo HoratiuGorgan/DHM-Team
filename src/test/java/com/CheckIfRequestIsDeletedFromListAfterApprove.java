@@ -30,6 +30,8 @@ import com.steps.NewVacationTestSteps;
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/testIfRequestIsDeletedAfterApprove.csv")
 
+
+// this test checks whether the approved request disappears from the inbox (after approve)
 public class CheckIfRequestIsDeletedFromListAfterApprove {
 	
 	

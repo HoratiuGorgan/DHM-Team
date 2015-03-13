@@ -77,9 +77,9 @@ public class AcceptRejectRequstPage extends PageObject {
 				
 		}
 	}
-	//boolean id=true;
-	public void checksTheRequestsList(String employeeName, String date) {
-		boolean id=true;
+
+	public boolean checksTheRequestsList(String employeeName, String date) {
+		//boolean id=true;
 		List<WebElement> EmployeeNames = getDriver().findElements(
 				By.cssSelector("td[class*='col-employee-name']"));
 		for (WebElement name : EmployeeNames) {
@@ -89,7 +89,7 @@ public class AcceptRejectRequstPage extends PageObject {
 						By.cssSelector("td[class*='col-my.request.column.header.start.date']"));
 				for(int i = 0; i<startDate.size(); i++){
 					if(startDate.get(i).getText().toLowerCase().equals(date.toLowerCase())){
-						id=false;
+						return false;
 					}
 										
 				}
@@ -98,8 +98,8 @@ public class AcceptRejectRequstPage extends PageObject {
 			}
 				
 		}
-		Assert.assertFalse("mesajul", id);
-		//return true;
+		//Assert.assertFalse("mesajul", id);
+		return true;
 	}
 	
 		
