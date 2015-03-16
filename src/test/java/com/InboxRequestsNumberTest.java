@@ -27,62 +27,57 @@ import com.steps.NewVacationTestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-
-/*Testeaza daca la sectiunea Inbox(n) unde n=nr de requesturi se adauga 1 
-dupa ce se face o cerere de concediu*/
-
+/*
+ * Testeaza daca la sectiunea Inbox(n) unde n=nr de requesturi se adauga 1 dupa
+ * ce se face o cerere de concediu
+ */
 public class InboxRequestsNumberTest {
-	
+
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
+
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
 	public Pages page;
-	
+
 	@Steps
 	public NewVacationTestSteps newVacationTestSteps;
-	
+
 	@Steps
 	public LoginSteps loginSteps;
-	
+
 	@Steps
 	public AcceptRejectRequestSteps acceptRejectRequestSteps;
-	
-	/*@Steps
-	public AcceptRejectRequstPage acceptRejectRequstPage;*/
-	
+
 	@Test
-	public void checkInboxRequestNumber() throws ParseException{
-		
+	public void checkInboxRequestNumber() throws ParseException {
+
 		loginSteps.login("dragoscampean", "Dragos.campean19");
-		loginSteps.opens_vacation_tab();
+		loginSteps.opensVacationTab();
 		int initialInboxNumber = acceptRejectRequestSteps.getInboxNumber();
 		acceptRejectRequestSteps.logout();
-		
+
 		loginSteps.login("horatiugorgan1", "Evozon.2010");
-		loginSteps.opens_vacation_tab();
+		loginSteps.opensVacationTab();
 		newVacationTestSteps.new_vacation_open();
 		newVacationTestSteps.setStartDate(24, 3, 2015);
 		newVacationTestSteps.setEndDate(24, 3, 2015);
 		newVacationTestSteps.createANewVacation();
 		acceptRejectRequestSteps.logout();
 		loginSteps.login("dragoscampean", "Dragos.campean19");
-		loginSteps.opens_vacation_tab();
-		
-	//	int initialInboxNumber = acceptRejectRequstPage.getInboxNumber();
-		
-		
-		//newVacationTestSteps.new_vacation_open();
-		
-	/*	newVacationTestSteps.setStartDate(25, 3, 2015);
-		newVacationTestSteps.setEndDate(27, 3, 2015);
-		newVacationTestSteps.createANewVacation();*/
-		//loginSteps.opens_vacation_tab();
+		loginSteps.opensVacationTab();
+
+		// int initialInboxNumber = acceptRejectRequstPage.getInboxNumber();
+
+		// newVacationTestSteps.new_vacation_open();
+
+		/*
+		 * newVacationTestSteps.setStartDate(25, 3, 2015);
+		 * newVacationTestSteps.setEndDate(27, 3, 2015);
+		 * newVacationTestSteps.createANewVacation();
+		 */
+		// loginSteps.opens_vacation_tab();
 		newVacationTestSteps.compareInboxNumber(initialInboxNumber + 1);
-		
-		
+
 	}
-	
-	
 
 }

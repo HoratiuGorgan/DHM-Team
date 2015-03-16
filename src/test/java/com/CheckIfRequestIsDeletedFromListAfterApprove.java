@@ -29,45 +29,35 @@ import com.steps.NewVacationTestSteps;
 //@Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/testIfRequestIsDeletedAfterApprove.csv")
-
-
 // this test checks whether the approved request disappears from the inbox (after approve)
 public class CheckIfRequestIsDeletedFromListAfterApprove {
-	
-	
-	
+
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
+
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
 	public Pages page;
-	
+
 	@Steps
 	public NewVacationTestSteps newVacationTestSteps;
-	
+
 	@Steps
 	public AcceptRejectRequestSteps acceptRejectRequestSteps;
-	
+
 	@Steps
 	public LoginSteps loginSteps;
-	
 
-	//data from the CSV
-//>>>>>>> branch 'master' of https://github.com/HoratiuGorgan/DHM-Team
 	String startDate, employeeName;
-	
-	
-	
+
 	@Test
-	public void testIfRequestIsDeleted(){
+	public void testIfRequestIsDeleted() {
 		loginSteps.login("dragoscampean", "Dragos.campean19");
-		loginSteps.opens_vacation_tab();
+		loginSteps.opensVacationTab();
 		acceptRejectRequestSteps.clickInbox();
 		acceptRejectRequestSteps.goThroughRequestsList(employeeName, startDate);
 		acceptRejectRequestSteps.clickApprove();
 		acceptRejectRequestSteps.checksTheRequestsList(employeeName, startDate);
-		
-		
+
 	}
 
 }

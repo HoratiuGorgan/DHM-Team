@@ -25,51 +25,49 @@ import com.steps.NewVacationTestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-//@UseTestDataFrom("resources/tipuriDeConcedii.csv")
-//@UseTestDataFrom("resources/AvailableFreeDays.csv")
-
+// @UseTestDataFrom("resources/tipuriDeConcedii.csv")
+// @UseTestDataFrom("resources/AvailableFreeDays.csv")
 public class FreeDaysNumberCheckingBeforeAndAfterRequest {
 
-	/*Testeaza daca se substrage numarul corect de zile libere dupa o cerere 
-	de tip Holiday si daca se adauga zilele inapoi dupa ce se da 'withdrawn' la cerere*/
-	
-	
+	/*
+	 * Testeaza daca se substrage numarul corect de zile libere dupa o cerere de
+	 * tip Holiday si daca se adauga zilele inapoi dupa ce se da 'withdrawn' la
+	 * cerere
+	 */
+
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
+
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
 	public Pages page;
-	
+
 	@Steps
 	public NewVacationTestSteps newVacationTestSteps;
-	
+
 	@Steps
 	public LoginSteps loginSteps;
-	
-	//String tipDeConcediu;
-	
-	//int AvailableFreeDays;
-	
+
+	// String tipDeConcediu;
+
+	// int AvailableFreeDays;
+
 	@Test
-	public void pick_a_date() throws ParseException{
+	public void pick_a_date() throws ParseException {
 		loginSteps.login("horatiugorgan1", "Evozon.2010");
-		loginSteps.opens_vacation_tab();
-		
+		loginSteps.opensVacationTab();
 		int initialFreeDays = newVacationTestSteps.getFreeDays();
-		
 		newVacationTestSteps.new_vacation_open();
 		newVacationTestSteps.setStartDate(5, 11, 2015);
 		newVacationTestSteps.setEndDate(6, 11, 2015);
-		//newVacationTestSteps.clickVacationTypeCheckbox(tipDeConcediu);
+		// newVacationTestSteps.clickVacationTypeCheckbox(tipDeConcediu);
 		newVacationTestSteps.createANewVacation();
 		String requestURL = newVacationTestSteps.getBrowserURL();
-		
 		newVacationTestSteps.compareFreeDays(initialFreeDays - 2);
-		
+
 		newVacationTestSteps.navigateTo(requestURL);
-		
+
 		newVacationTestSteps.click_WithdrawVacation();
-		//newVacationTestSteps.click_MyFreeDays();
+		// newVacationTestSteps.click_MyFreeDays();
 		newVacationTestSteps.compareFreeDays(initialFreeDays);
 	}
 

@@ -46,10 +46,7 @@ public class LoginPage extends PageObject {
 
     @FindBy(css="div[class='aui-fieldset-content aui-column-content']:first-child")
     private WebElementFacade vacationsReport;
-    
-    //@FindBy(css="div[class='aui-column-content aui-column-content-first '] ul[class='nav nav-list'] li[class*='menu'] a[href]")
-    //private List<WebElement> myPages;
-	
+
 	public void selectsTheRequestedPage(String myPage) {
 		
 		//element(myPages.get(0)).waitUntilVisible();
@@ -100,18 +97,19 @@ public class LoginPage extends PageObject {
     @FindBy(css="a[href*='http://192.168.1.68:9090/vacation']")
     private WebElementFacade clickVacationButton;
 
-    public void enter_username(String username) {
+    public void enterUsername(String username) {
     	userInput.sendKeys(username);
     }
-    public void enter_password(String password) {
+
+	public void enterPassword(String password) {
         passwordInput.sendKeys(password);
     }
     
-    public void login_click() {
+    public void loginClick() {
         loginButton.click();
     }
     
-    public void click_vacation_button(){
+    public void clickVacationButton(){
     	clickVacationButton.click();
     }
 

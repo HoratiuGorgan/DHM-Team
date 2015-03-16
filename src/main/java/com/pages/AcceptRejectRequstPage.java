@@ -36,11 +36,11 @@ public class AcceptRejectRequstPage extends PageObject {
 
 	@FindBy(css = "a[href*='menuItem=inbox'] b")
 	public WebElementFacade inboxNumber;
-	
+
 	@FindBy(css = "a[href='/c/portal/logout']")
 	public WebElementFacade logout;
-	
-	public void click_logout(){
+
+	public void click_logout() {
 		logout.click();
 	}
 
@@ -63,10 +63,6 @@ public class AcceptRejectRequstPage extends PageObject {
 
 	@FindBy(css = "input[name='_evovacation_WAR_EvoVacationportlet_rowIds']")
 	private List<WebElement> clickCheckbox;
-
-	/*
-	 * public void clickCheckbox(){ clickCheckbox.click(); }
-	 */
 
 	public int getInboxNumber() {
 		inboxNumber.waitUntilVisible();
@@ -101,9 +97,8 @@ public class AcceptRejectRequstPage extends PageObject {
 		}
 	}
 
-
 	public boolean checksTheRequestsList(String employeeName, String date) {
-		//boolean id=true;
+		// boolean id=true;
 		List<WebElement> EmployeeNames = getDriver().findElements(
 				By.cssSelector("td[class*='col-employee-name']"));
 		for (WebElement name : EmployeeNames) {
@@ -123,18 +118,7 @@ public class AcceptRejectRequstPage extends PageObject {
 			}
 
 		}
-		//Assert.assertFalse("mesajul", id);
 		return true;
 	}
-
-	/*
-	 * public void compareDaysNumber(int nrMax) { String
-	 * newText=textDaysNumber.getText(); String
-	 * nr=newText.replaceAll("^0-9",""); int nrInt=Integer.parseInt(nr);
-	 * if(nrInt<nrMax) { clickApprove(); } else { clickReject();
-	 * System.out.println("you don't deserve it!"); }
-	 * 
-	 * }
-	 */
 
 }

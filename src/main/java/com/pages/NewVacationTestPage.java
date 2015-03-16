@@ -27,12 +27,7 @@ public class NewVacationTestPage extends PageObject {
 	@FindBy(css = "a[href$='new-request']")
 	private WebElementFacade newVacationRequest;
 
-	
-	//@FindBy(css="[class='section-result'] td:nth-child(2)")
-
-
 	@FindBy(css = "tr[class='section-result'] td:nth-child(2)")
-
 	private WebElementFacade availableDays;
 
 	@FindBy(css = "div[class='aui-column-content aui-column-content-first vacation-info-column-content '] div:nth-child(5) b:nth-child(3)")
@@ -92,7 +87,7 @@ public class NewVacationTestPage extends PageObject {
 		String daysNr1 = selectedBusinessDays.getText();
 		int daysNr = Integer.parseInt(daysNr1);
 
-		int c = getDaysLeft() - daysNr+1;
+		int c = getDaysLeft() - daysNr + 1;
 		return c;
 	}
 

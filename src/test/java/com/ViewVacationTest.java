@@ -22,35 +22,35 @@ import com.steps.ViewVacationsSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesParameterizedRunner.class)
-//@UseTestDataFrom("resources/dataTest.csv")
+// @UseTestDataFrom("resources/dataTest.csv")
 @UseTestDataFrom("resources/dataTest.csv")
-//@RunWith(ThucydidesRunner.class)
+// @RunWith(ThucydidesRunner.class)
 public class ViewVacationTest {
-	
+
 	public String lastname, firstname;
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
-	
+
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
 	public Pages page;
-	
+
 	@Steps
 	public ViewVacationsSteps viewVacationsSteps;
-	
+
 	@Steps
 	public LoginSteps loginSteps;
-	
+
 	@Test
-	public void search_action(){
+	public void searchAction() {
 		loginSteps.login(Constants.USER, Constants.PASSWORD);
-		loginSteps.opens_vacation_tab();
-		viewVacationsSteps.click_ViewVacations();
-		viewVacationsSteps.enter_LastName(lastname);
-		viewVacationsSteps.enter_FirstName(firstname);
-		viewVacationsSteps.click_Apply();
-		viewVacationsSteps.sort_byStatus();
+		loginSteps.opensVacationTab();
+		viewVacationsSteps.clickViewVacations();
+		viewVacationsSteps.enterLastName(lastname);
+		viewVacationsSteps.enterFirstName(firstname);
+		viewVacationsSteps.applySearch();
+		viewVacationsSteps.sortByStatus();
 		viewVacationsSteps.userValidation();
-		
+
 	}
 }

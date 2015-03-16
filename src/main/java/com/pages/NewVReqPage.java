@@ -27,7 +27,7 @@ public class NewVReqPage extends PageObject {
 
 	@FindBy(css = "[name='startDate']")
 	private WebElementFacade click_StartDate;
-	
+
 	@FindBy(css = "[name='endDate']")
 	private WebElementFacade click_EndDate;
 
@@ -39,39 +39,9 @@ public class NewVReqPage extends PageObject {
 		click_EndDate.click();
 	}
 
-	public void newVReq_click() {
+	public void newVReqClick() {
 		newVReqButton.click();
 	}
-
-	/*
-	 * public void settingDateByGivenParameter(int month, int day, int year)
-	 * throws ParseException{
-	 * 
-	 * Calendar calNew = Calendar.getInstance(); SimpleDateFormat sdfNew = new
-	 * SimpleDateFormat("dd/MM/yyyy"); calNew.setTime(sdfNew.parse("1/" +
-	 * String.valueOf(month) + "/" + String.valueOf(year)));
-	 * 
-	 * Calendar cal = Calendar.getInstance();
-	 * 
-	 * do { // get calendar title and create calendar value
-	 * element(calendarTitle).waitUntilVisible(); String MandY =
-	 * calendarTitle.getText(); SimpleDateFormat sdf = new
-	 * SimpleDateFormat("MMM, yyyy dd"); cal.setTime(sdf.parse(MandY + " 1"));
-	 * 
-	 * // go previous or next based on comparison if (cal.compareTo(calNew) ==
-	 * -1) { nextButton.click(); } if (cal.compareTo(calNew) == 1) {
-	 * previousButton.click(); }
-	 * 
-	 * } while (cal.compareTo(calNew) != 0); // until month and year are as
-	 * expected
-	 * 
-	 * // select day List<WebElement> days = getDriver().findElements(
-	 * By.cssSelector("div[style*='block'] td")); for (WebElement currentDay :
-	 * days) { if (currentDay.getText().contentEquals(String.valueOf(day)))
-	 * currentDay.click(); }
-	 * 
-	 * }
-	 */
 
 	public void settingDateByGivenParameter(int month, int day, int year)
 			throws ParseException {
@@ -116,7 +86,7 @@ public class NewVReqPage extends PageObject {
 	@FindBy(css = "[value='CS']")
 	private WebElementFacade specialVacField;
 
-	public void specialVacField_click() {
+	public void specialVacFieldClick() {
 		specialVacField.click();
 	}
 
@@ -125,7 +95,7 @@ public class NewVReqPage extends PageObject {
 	@FindBy(css = "[name='specialReason']")
 	private WebElementFacade specialReason;
 
-	public void specialReason_click() {
+	public void specialReasonClick() {
 		// specialReason.click();
 		specialReason.selectByVisibleText("Child birth").click();
 	}
@@ -134,7 +104,7 @@ public class NewVReqPage extends PageObject {
 	@FindBy(css = "[value='CHILD_BIRTH']")
 	private WebElementFacade childBirth;
 
-	public void selectChild_click() {
+	public void selectChildClick() {
 
 		childBirth.selectByIndex('1');
 
@@ -144,7 +114,7 @@ public class NewVReqPage extends PageObject {
 	@FindBy(css = "[id='_evovacation_WAR_EvoVacationportlet_newVacationComment']")
 	private WebElementFacade commentButton;
 
-	public void comment_click() {
+	public void commentClick() {
 		commentButton.click();
 
 	}
@@ -153,7 +123,7 @@ public class NewVReqPage extends PageObject {
 	@FindBy(css = "[name='commentContent']")
 	private WebElementFacade commentBox;
 
-	public void enter_comment(String comment) {
+	public void enterComment(String comment) {
 		commentBox.sendKeys(comment);
 	}
 
@@ -161,7 +131,7 @@ public class NewVReqPage extends PageObject {
 	@FindBy(css = "[id='_evovacation_WAR_EvoVacationportlet_saveButton']")
 	private WebElementFacade submitVacation;
 
-	public void submitVacation_click() {
+	public void submitVacationClick() {
 
 		submitVacation.click();
 

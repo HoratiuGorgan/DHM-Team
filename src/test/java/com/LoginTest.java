@@ -20,23 +20,21 @@ import com.steps.LoginSteps;
 @RunWith(ThucydidesRunner.class)
 public class LoginTest {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
-    public Pages pages;
+	@ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
+	public Pages pages;
 
-    @Steps
-    public LoginSteps loginSteps;
+	@Steps
+	public LoginSteps loginSteps;
 
-    @Issue("#VACATION-1")
+	@Issue("#VACATION-1")
+	@Test
+	public void login_action() {
+		loginSteps.login(Constants.USER, Constants.PASSWORD);
+		loginSteps.opensVacationTab();
 
-    @Test 
-    public void login_action(){
-    	loginSteps.login(Constants.USER, Constants.PASSWORD);
-    	loginSteps.opens_vacation_tab();
-    	
-    }
-    
- 
-} 
+	}
+
+}

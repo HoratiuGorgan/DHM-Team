@@ -12,7 +12,7 @@ public class HomePage extends PageObject{
     private WebElementFacade signInButton;
 	
 	
-	public void signIn_click() {
+	public void signInClick() {
 		signInButton.click();
     }
 

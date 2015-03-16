@@ -23,38 +23,32 @@ import net.thucydides.junit.runners.ThucydidesRunner;
 public class NewVReqTest {
 
 	@Managed(uniqueSession = true)
-    public WebDriver webdriver;
-	
+	public WebDriver webdriver;
+
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
-    public Pages pages;
+	public Pages pages;
 	@Steps
-	public LoginSteps endUser;
-	
+	public LoginSteps loginSteps;
+
 	@Steps
-	public NewVReqSteps nvreqtest;
-	
-	
-	 @Issue("#VACATION-1")
+	public NewVReqSteps newVReqSteps;
 
-	 @Test 
-	    public void signInclick_action() throws ParseException {
-		 	endUser.login(Constants.USER, Constants.PASSWORD);
-	    	endUser.opens_vacation_tab();
-	    	nvreqtest.is_the_vacation_page();
-	    	nvreqtest.newVReq_click();
-	    	nvreqtest.setStartDate(04,12,2015);
-	    	nvreqtest.setEndDate(05,01,2015);
-/*	    	nvreqtest.specialVacField_click();
-	    	nvreqtest.specialReason_click();
-	    	nvreqtest.comment_click();
-	    	//nvreqtest.selectChild_click();
-	    	nvreqtest.enter_comment("I became a dad");*/
-	    	nvreqtest.submitVacation_click();
-	    	
-	    }
+	@Issue("#VACATION-1")
+	@Test
+	public void signInclick_action() throws ParseException {
+		loginSteps.login(Constants.USER, Constants.PASSWORD);
+		loginSteps.opensVacationTab();
+		newVReqSteps.isTheVacationPage();
+		newVReqSteps.newVReqClick();
+		newVReqSteps.setStartDate(04, 12, 2015);
+		newVReqSteps.setEndDate(05, 01, 2015);
+		/*
+		 * nvreqtest.specialVacField_click(); nvreqtest.specialReason_click();
+		 * nvreqtest.comment_click(); //nvreqtest.selectChild_click();
+		 * nvreqtest.enter_comment("I became a dad");
+		 */
+		newVReqSteps.submitVacationClick();
 
+	}
 
 }
-	
-	
-

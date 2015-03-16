@@ -27,16 +27,16 @@ public class VacationsReportSteps extends ScenarioSteps {
 
     
     @Step
-    public void enter_firstName(String firstname) {
-    	vacationsReportPage.enter_firstName(firstname);
+    public void enterFirstName(String firstname) {
+    	vacationsReportPage.enterFirstName(firstname);
     }
     
    
 
     
     @Step
-    public void enter_lastName(String lastname) {
-    	vacationsReportPage.enter_lastName(lastname);
+    public void enterLastName(String lastname) {
+    	vacationsReportPage.enterLastName(lastname);
     }
     
     @Step	
