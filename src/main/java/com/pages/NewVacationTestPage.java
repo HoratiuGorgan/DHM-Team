@@ -3,7 +3,6 @@ package com.pages;
 import ch.lambdaj.function.convert.Converter;
 import net.thucydides.core.annotations.DefaultUrl;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -19,28 +18,33 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import junit.framework.Assert;
 import static org.junit.Assert.*;
 import static ch.lambdaj.Lambda.convert;
 
-@DefaultUrl("http://192.168.1.68:9090")
 public class NewVacationTestPage extends PageObject {
 
 	@FindBy(css = "a[href$='new-request']")
 	private WebElementFacade newVacationRequest;
+
 	
-	@FindBy(css="[class='section-result'] td:nth-child(2)")
+	//@FindBy(css="[class='section-result'] td:nth-child(2)")
+
+
+	@FindBy(css = "tr[class='section-result'] td:nth-child(2)")
+
 	private WebElementFacade availableDays;
-	
-	@FindBy(css="div[class='vacation-info-row align-to-left employee-info'] b:nth-child(2)")
+
+	@FindBy(css = "div[class='aui-column-content aui-column-content-first vacation-info-column-content '] div:nth-child(5) b:nth-child(3)")
 	private WebElementFacade takenDays;
 
 	@FindBy(name = "startDate")
 	private WebElementFacade startDateButton;
-	
-	@FindBy(css="a[href$='menuItem=my-free-days']")
+
+	@FindBy(css = "a[href$='menuItem=my-free-days']")
 	private WebElementFacade myFreeDaysButton;
-	
-	@FindBy(css= "input[id='_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest']")
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest']")
 	private WebElementFacade withdrawButton;
 
 	@FindBy(name = "endDate")
@@ -57,7 +61,48 @@ public class NewVacationTestPage extends PageObject {
 
 	@FindBy(css = "[id='_evovacation_WAR_EvoVacationportlet_saveButton']")
 	private WebElementFacade submitVacation;
-	
+
+	@FindBy(css = "[id='_evovacation_WAR_EvoVacationportlet_businessDaysOutput']")
+	private WebElementFacade selectedBusinessDays;
+
+	// nr de zile de concediu solicitate
+	/*
+	 * String daysNr1 = selectedBusinessDays.getText(); int daysNr =
+	 * Integer.parseInt(daysNr1);
+	 */
+
+	@FindBy(css = "[id='vacDaysLeft']")
+	private WebElementFacade vacationDaysLeft;
+
+	private int getDaysLeft() {
+		String daysLeft = vacationDaysLeft.getText();
+
+		String str2 = daysLeft.replaceAll("[^0-9.]", "");
+		return Integer.parseInt(str2);
+
+	}
+
+	// nr de zile de concediu ramase
+	public int selectVacationDaysLeft() {
+		/*
+		 * String str2=daysLeft.replaceAll("[^0-9.]", ""); int
+		 * daysLeftJustNr=Integer.parseInt(str2);
+		 */
+		return getDaysLeft();
+	}
+
+	public int daysDifference() {
+		String daysNr1 = selectedBusinessDays.getText();
+		int daysNr = Integer.parseInt(daysNr1);
+
+		int c = getDaysLeft() - daysNr+1;
+		return c;
+	}
+
+	/*
+	 * public void compareDays(){ Assert.assertEquals(expected, actual); }
+	 */
+
 	// parcurge lista de tipuri de concedii
 
 	public void clickVacantionCheckbox(String vacationType) {
@@ -68,23 +113,21 @@ public class NewVacationTestPage extends PageObject {
 				type.click();
 		}
 	}
-	
+
 	public int getFreeDays() {
-	    String aString = availableDays.getText();
-	    String nr=aString.replaceAll("^0-9","");
-	    int aInt = Integer.parseInt(nr);
-	    return aInt;
-	   	  }
+		String aString = availableDays.getText();
+		String nr = aString.replaceAll("^0-9", "");
+		int aInt = Integer.parseInt(nr);
+		return aInt;
+	}
 
-	/*public boolean checkFreeDays(int freeDaysNumber) {
-		boolean equals=false;
-		if(getFreeDays()==freeDaysNumber){
-			equals=true;
-		}
-		return equals;
-	}*/
+	/*
+	 * public boolean checkFreeDays(int freeDaysNumber) { boolean equals=false;
+	 * if(getFreeDays()==freeDaysNumber){ equals=true; } return equals; }
+	 */
 
-	public void settingDateByGivenParameter(int day, int month, int year) throws ParseException {
+	public void settingDateByGivenParameter(int day, int month, int year)
+			throws ParseException {
 
 		Calendar calNew = Calendar.getInstance();
 		SimpleDateFormat sdfNew = new SimpleDateFormat("dd/MM/yyyy");
@@ -124,8 +167,8 @@ public class NewVacationTestPage extends PageObject {
 		startDateButton.click();
 
 	}
-	
-	public void click_MyFreeDaysButton(){
+
+	public void click_MyFreeDaysButton() {
 		myFreeDaysButton.click();
 	}
 
@@ -140,8 +183,8 @@ public class NewVacationTestPage extends PageObject {
 	public void create_newVacation() {
 		submitVacation.click();
 	}
-	
-	public void click_WithdrawVacation(){
+
+	public void click_WithdrawVacation() {
 		withdrawButton.click();
 	}
 

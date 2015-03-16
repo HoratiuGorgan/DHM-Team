@@ -12,7 +12,7 @@ public class TestLeftDaysSteps extends ScenarioSteps{
 		int nr=10;
 		for (int i = 1; i<nr; i++){
 			//read data from datadriven termina-l!!!!!
-			nvts.setStartDate(day, month, year);
+			//nvts.setStartDate(day, month, year);
 			
 			
 		}
