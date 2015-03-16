@@ -30,6 +30,8 @@ import com.steps.NewVacationTestSteps;
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/testIfRequestIsDeletedAfterApprove.csv")
 
+
+// this test checks whether the approved request disappears from the inbox (after approve)
 public class CheckIfRequestIsDeletedFromListAfterApprove {
 	
 	
@@ -49,6 +51,7 @@ public class CheckIfRequestIsDeletedFromListAfterApprove {
 	@Steps
 	public LoginSteps loginSteps;
 	
+	
 	String startDate, employeeName;
 	
 	@Test
@@ -56,7 +59,7 @@ public class CheckIfRequestIsDeletedFromListAfterApprove {
 		loginSteps.login("dragoscampean", "Dragos.campean19");
 		loginSteps.opens_vacation_tab();
 		acceptRejectRequestSteps.clickInbox();
-		acceptRejectRequestSteps.goThroughRequestsList("haoratiu gorgan", startDate);
+		acceptRejectRequestSteps.goThroughRequestsList("horatiu gorgan", startDate);
 		acceptRejectRequestSteps.clickApprove();
 		acceptRejectRequestSteps.checksTheRequestsList("horatiu gorgan", startDate);
 		

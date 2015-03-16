@@ -23,6 +23,7 @@ import com.steps.VacationsReportSteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/dataDriven.csv")
+// checks if we are on the correct page after clicking it
 public class ChecksIfItIsTheCorrectPageTest {
 
     @Managed(uniqueSession = true)

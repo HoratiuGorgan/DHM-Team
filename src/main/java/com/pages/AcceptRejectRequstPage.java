@@ -101,9 +101,9 @@ public class AcceptRejectRequstPage extends PageObject {
 		}
 	}
 
-	boolean id = true;
 
 	public boolean checksTheRequestsList(String employeeName, String date) {
+		//boolean id=true;
 		List<WebElement> EmployeeNames = getDriver().findElements(
 				By.cssSelector("td[class*='col-employee-name']"));
 		for (WebElement name : EmployeeNames) {
@@ -123,6 +123,7 @@ public class AcceptRejectRequstPage extends PageObject {
 			}
 
 		}
+		//Assert.assertFalse("mesajul", id);
 		return true;
 	}
 
