@@ -43,11 +43,11 @@ public class CheckVacationDaysLeftButtonTest {
 	public void testIfRequestIsDeleted() throws ParseException {
 		loginSteps.login("dragoscampean", "Dragos.campean19");
 		loginSteps.opensVacationTab();
-		newVacationTestSteps.new_vacation_open();
+		newVacationTestSteps.newVacationOpen();
 		newVacationTestSteps.setStartDate(20, 4, 2015);
 		newVacationTestSteps.setEndDate(21, 4, 2015);
 		newVacationTestSteps.createANewVacation();
-		newVacationTestSteps.new_vacation_open();
+		newVacationTestSteps.newVacationOpen();
 		loginSteps.daysDifference();
 
 	}

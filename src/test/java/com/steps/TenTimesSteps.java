@@ -82,7 +82,7 @@ public class TenTimesSteps extends ScenarioSteps {
 
 		newVacationTestSteps.navigateTo(requestURL);
 
-		newVacationTestSteps.click_WithdrawVacation();
+		newVacationTestSteps.clickWithdrawVacation();
 		// newVacationTestSteps.click_MyFreeDays();
 		newVacationTestSteps.compareFreeDays(initialFreeDays);
 	}

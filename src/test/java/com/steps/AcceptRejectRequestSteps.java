@@ -39,6 +39,6 @@ public class AcceptRejectRequestSteps {
 
 	@Step
 	public void logout() {
-		acceptRejectRequstPage.click_logout();
+		acceptRejectRequstPage.clickLogout();
 	}
 }

@@ -30,8 +30,8 @@ public class NewVacationTestSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void new_vacation_open() {
-		newVacationTestPage.open_newVacation();
+	public void newVacationOpen() {
+		newVacationTestPage.newVacationOpen();
 	}
 
 	@Step
@@ -70,13 +70,13 @@ public class NewVacationTestSteps extends ScenarioSteps {
 	}
 
 	@Step
-	public void click_logout() {
-		acceptRejectTestPage.click_logout();
+	public void clickLogout() {
+		acceptRejectTestPage.clickLogout();
 	}
 
 	@Step
-	public void click_WithdrawVacation() {
-		newVacationTestPage.click_WithdrawVacation();
+	public void clickWithdrawVacation() {
+		newVacationTestPage.clickWithdrawVacation();
 	}
 
 	/*
