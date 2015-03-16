@@ -48,27 +48,24 @@ public class InboxRequestsNumberTest {
 	@Steps
 	public AcceptRejectRequestSteps acceptRejectRequestSteps;
 
-	/*
-	 * @Steps public AcceptRejectRequstPage acceptRejectRequstPage;
-	 */
 
 	@Test
 	public void checkInboxRequestNumber() throws ParseException {
 
 		loginSteps.login("dragoscampean", "Dragos.campean19");
-		loginSteps.opens_vacation_tab();
+		loginSteps.opensVacationTab();
 		int initialInboxNumber = acceptRejectRequestSteps.getInboxNumber();
 		acceptRejectRequestSteps.logout();
 
 		loginSteps.login("horatiugorgan1", "Evozon.2010");
-		loginSteps.opens_vacation_tab();
+		loginSteps.opensVacationTab();
 		newVacationTestSteps.new_vacation_open();
 		newVacationTestSteps.setStartDate(24, 3, 2015);
 		newVacationTestSteps.setEndDate(24, 3, 2015);
 		newVacationTestSteps.createANewVacation();
 		acceptRejectRequestSteps.logout();
 		loginSteps.login("dragoscampean", "Dragos.campean19");
-		loginSteps.opens_vacation_tab();
+
 
 		// int initialInboxNumber = acceptRejectRequstPage.getInboxNumber();
 

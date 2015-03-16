@@ -21,25 +21,21 @@ import com.steps.HomeSteps;
 @RunWith(ThucydidesRunner.class)
 public class HomeTest {
 
-		@Managed(uniqueSession = true)
-	    public WebDriver webdriver;
-		
-		@ManagedPages(defaultUrl = "http://192.168.1.68:9090")
-	    public Pages pages;
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-		@Steps
-	    public HomeSteps homeTest;
+	@ManagedPages(defaultUrl = "http://192.168.1.68:9090")
+	public Pages pages;
 
-	    @Issue("#VACATION-1")
+	@Steps
+	public HomeSteps homeSteps;
 
-	    @Test 
-	    public void signInclick_action(){
-	    	homeTest.is_the_home_page();
-	    	homeTest.signIn_click();
-	    	
-	    }
+	@Issue("#VACATION-1")
+	@Test
+	public void signInclick_action() {
+		homeSteps.isTheHomePage();
+		homeSteps.signInClick();
 
-
-
+	}
 
 }

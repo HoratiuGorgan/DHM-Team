@@ -25,9 +25,6 @@ public class VacationsReportPage extends PageObject {
 	@FindBy(css = "a[href*='http://192.168.1.68:9090/vacation?p_p_id=evovacation_WAR_EvoVacationportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_evovacation_WAR_EvoVacationportlet_backURL=%2Fvacation&_evovacation_WAR_EvoVacationportlet_menuItem=vacation-report']")
 	private WebElementFacade vacationsReport;
 
-	// @FindBy(css="[name='_evovacation_WAR_EvoVacationportlet_exportMonth']")
-	// private WebElementFacade exportForMonth;
-
 	@FindBy(css = "[class='aui-datepicker-month']")
 	private WebElementFacade exportForMonth;
 
@@ -74,11 +71,11 @@ public class VacationsReportPage extends PageObject {
 	@FindBy(css = "[class='content-title']")
 	public WebElementFacade pageTitle;
 
-	public void enter_firstName(String firstname) {
+	public void enterFirstName(String firstname) {
 		firsttNameTab.sendKeys(firstname);
 	}
 
-	public void enter_lastName(String lastname) {
+	public void enterLastName(String lastname) {
 		lastNameTab.sendKeys(lastname);
 	}
 
@@ -90,35 +87,15 @@ public class VacationsReportPage extends PageObject {
 		exportButton.click();
 	}
 
-/*	public void clickMonth() {
-		exportForMonth.click();
-	}*/
-
 	public void selectsMonth(String Month) {
 		exportForMonth.selectByVisibleText(Month);
 
 	}
-	public void selectsYear(String Year){
-		 exportForYear.selectByVisibleText(Year); 
+
+	public void selectsYear(String Year) {
+		exportForYear.selectByVisibleText(Year);
 
 	}
-/*	public boolean getPageTitle(String compareValue) {
-		boolean first = pageTitle.getText().toLowerCase()
-				.contains(compareValue.toLowerCase());
-		return first;
-
-	}*/
-
-	/*
-	 * public void clickSelectedMonth(){ exportForMonth.click(); }
-	 * 
-	 * public void clickYear(){ exportForYear.click();
-	 * 
-	 * }
-	 * 
-	 * public void selectsYear(String Year){
-	 * (exportForYear).selectByVisibleText(Year); }
-	 */
 
 	public void clickStatusApproved() {
 		statusApproved.click();

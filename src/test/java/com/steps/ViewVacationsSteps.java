@@ -19,32 +19,32 @@ public class ViewVacationsSteps extends ScenarioSteps {
 	ViewVacationPage viewVacation;
 	
 	@Step
-	public void click_ViewVacations(){
+	public void clickViewVacations(){
 		viewVacation.click_ViewVacations();
 	}
 	
 	@Step
-	public void click_Apply(){
-		viewVacation.apply_search();
+	public void applySearch(){
+		viewVacation.applySearch();
 	}
 	
 	@Step
-	public void is_the_viewVacation_page(){
+	public void isTheViewVacationPage(){
 		viewVacation.open();
 	}
 	
 	@Step
-	public void enter_LastName(String lastname){
-		viewVacation.enter_LastName(lastname);	
+	public void enterLastName(String lastname){
+		viewVacation.enterLastName(lastname);	
 	}
 	
 	@Step
-	public void enter_FirstName(String firstname){
-		viewVacation.enter_FirstName(firstname);
+	public void enterFirstName(String firstname){
+		viewVacation.enterFirstName(firstname);
 	}
 	@Step
-	public void sort_byStatus(){
-		viewVacation.sort_byStatus();
+	public void sortByStatus(){
+		viewVacation.sortByStatus();
 	}
 
 	@Step

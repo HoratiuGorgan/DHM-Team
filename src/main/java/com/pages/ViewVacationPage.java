@@ -18,30 +18,29 @@ import com.google.protobuf.TextFormat.ParseException;
 
 @DefaultUrl("http://192.168.1.68:9090")
 public class ViewVacationPage extends PageObject {
-	
-	  @FindBy(css = "a[href$='view-vacations']") private WebElementFacade
-	  clickViewVacations;
-	  
-	  @FindBy(css =
-	  "input[id='_evovacation_WAR_EvoVacationportlet_applyButton']") private
-	  WebElementFacade clickApply;
-	  
-	  @FindBy(css =
-	  "input[id$='_evovacation_WAR_EvoVacationportlet_viewVacationsLastName']")
-	  private WebElementFacade inputLastName;
-	  
-	  @FindBy(css = "input[id$='viewVacationsFirstName']") private
-	  WebElementFacade inputFirstName;
-	  
-	  @FindBy(css =
-	  "a[href*='orderByCol=status&_evovacation_WAR_EvoVacationportlet_orderByType']"
-	  ) private WebElementFacade sortByStatus;
-	  
-	  @FindBy(css = ".portlet-msg-info") public WebElementFacade
-	  messageDisplayed;
-	  
-	  public void click_ViewVacations() { clickViewVacations.click(); }
-	 
+
+	@FindBy(css = "a[href$='view-vacations']")
+	private WebElementFacade clickViewVacations;
+
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_applyButton']")
+	private WebElementFacade clickApply;
+
+	@FindBy(css = "input[id$='_evovacation_WAR_EvoVacationportlet_viewVacationsLastName']")
+	private WebElementFacade inputLastName;
+
+	@FindBy(css = "input[id$='viewVacationsFirstName']")
+	private WebElementFacade inputFirstName;
+
+	@FindBy(css = "a[href*='orderByCol=status&_evovacation_WAR_EvoVacationportlet_orderByType']")
+	private WebElementFacade sortByStatus;
+
+	@FindBy(css = "div[class='portlet-msg-info']")
+	public WebElementFacade messageDisplayed;
+
+	public void click_ViewVacations() {
+		clickViewVacations.click();
+	}
+
 	@FindBy(css = "div[style*='block'] td.dp_caption")
 	private WebElementFacade calendarTitle;
 
@@ -95,19 +94,19 @@ public class ViewVacationPage extends PageObject {
 
 	}
 
-	public void enter_LastName(String lastname) {
+	public void enterLastName(String lastname) {
 		inputLastName.sendKeys(lastname);
 	}
 
-	public void enter_FirstName(String firstname) {
+	public void enterFirstName(String firstname) {
 		inputFirstName.sendKeys(firstname);
 	}
 
-	public void apply_search() {
+	public void applySearch() {
 		clickApply.click();
 	}
 
-	public void sort_byStatus() {
+	public void sortByStatus() {
 		sortByStatus.click();
 	}
 
@@ -121,16 +120,15 @@ public class ViewVacationPage extends PageObject {
 		return elementPresent;
 	}
 
-	
-	  public WebElement expected_boll(){ WebDriverWait wait = new
-	  WebDriverWait(getDriver(), 10); WebElement found =
-	  wait.until(ExpectedConditions
-	  .presenceOfElementLocated(By.cssSelector(".portlet-msg-info"))); return
-	  found; }
-	 
+	public WebElement expected_boll() {
+		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+		WebElement found = wait.until(ExpectedConditions
+				.presenceOfElementLocated(By.cssSelector(".portlet-msg-info")));
+		return found;
+	}
 
-	
-	  public void userValidation(){ messageDisplayed.waitUntilVisible(); }
-	 
+	public void userValidation() {
+		messageDisplayed.waitUntilVisible();
+	}
 
 }

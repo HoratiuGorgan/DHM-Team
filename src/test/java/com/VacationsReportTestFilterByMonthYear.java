@@ -23,36 +23,34 @@ import com.steps.VacationsReportSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-/*@RunWith(ThucydidesParameterizedRunner.class)*/
-//@UseTestDataFrom("resources/dataDriven.csv")
+/* @RunWith(ThucydidesParameterizedRunner.class) */
+// @UseTestDataFrom("resources/dataDriven.csv")
 public class VacationsReportTestFilterByMonthYear {
 
-	//this test filters a vacation report by month and year - (i tried to select items from a dropdown)
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+	// this test filters a vacation report by month and year - (i tried to
+	// select items from a dropdown)
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
-    public Pages pages;
+	@ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
+	public Pages pages;
 
-    @Steps
-    public VacationsReportSteps vacationsReportSteps;
-    @Steps
-    public LoginSteps loginSteps;
+	@Steps
+	public VacationsReportSteps vacationsReportSteps;
+	@Steps
+	public LoginSteps loginSteps;
 
-/*    public String username,password,pageTitle;
-   // @Issue("#VACATION-1")
-*/    
-    @Test 
-    public void search_vacations_report_action() throws ParseException{
-    	loginSteps.login(Constants.USER, Constants.PASSWORD);
-    	loginSteps.opens_vacation_tab();
-    	vacationsReportSteps.clicksVacationsReport();
-    	vacationsReportSteps.selectsMonth("June");
-    	vacationsReportSteps.selectsYear("2012");
+	/*
+	 * public String username,password,pageTitle; // @Issue("#VACATION-1")
+	 */
+	@Test
+	public void search_vacations_report_action() throws ParseException {
+		loginSteps.login(Constants.USER, Constants.PASSWORD);
+		loginSteps.opensVacationTab();
+		vacationsReportSteps.clicksVacationsReport();
+		vacationsReportSteps.selectsMonth("June");
+		vacationsReportSteps.selectsYear("2012");
 
+	}
 
-    	
-    }
-    
- 
-} 
+}

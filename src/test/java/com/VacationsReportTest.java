@@ -22,31 +22,29 @@ import com.steps.VacationsReportSteps;
 @RunWith(ThucydidesRunner.class)
 public class VacationsReportTest {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
-    public Pages pages;
+	@ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
+	public Pages pages;
 
-    @Steps
-    public VacationsReportSteps endUser;
-    @Steps
-    public LoginSteps endUser1;
+	@Steps
+	public VacationsReportSteps vacationsReportSteps;
+	@Steps
+	public LoginSteps loginSteps;
 
-   // @Issue("#VACATION-1")
-    
-    @Test 
-    public void search_vacations_report_action(){
-    	endUser1.login(Constants.USER, Constants.PASSWORD);
-    	endUser1.opens_vacation_tab();
-    	endUser.clicksVacationsReport();
-    	endUser.enter_firstName("dragos");
-    	endUser.enter_lastName("campean");
-    	endUser.clickSearch();
-    	endUser.clicksExportReport();
+	// @Issue("#VACATION-1")
 
-    	
-    }
-    
- 
-} 
+	@Test
+	public void search_vacations_report_action() {
+		loginSteps.login(Constants.USER, Constants.PASSWORD);
+		loginSteps.opensVacationTab();
+		vacationsReportSteps.clicksVacationsReport();
+		vacationsReportSteps.enterFirstName("dragos");
+		vacationsReportSteps.enterLastName("campean");
+		vacationsReportSteps.clickSearch();
+		vacationsReportSteps.clicksExportReport();
+
+	}
+
+}
