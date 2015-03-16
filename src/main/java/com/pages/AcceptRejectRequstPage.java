@@ -69,8 +69,8 @@ public class AcceptRejectRequstPage extends PageObject {
 	 */
 
 	public int getInboxNumber() {
-
-		String aString = inboxNumber.getText().toString();
+		inboxNumber.waitUntilVisible();
+		String aString = inboxNumber.getText();
 		String nr = aString.substring(1, aString.length() - 1);
 		int aInt = Integer.parseInt(nr);
 		return aInt;

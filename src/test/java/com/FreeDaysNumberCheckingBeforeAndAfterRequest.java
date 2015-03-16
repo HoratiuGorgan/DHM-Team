@@ -28,7 +28,7 @@ import com.steps.NewVacationTestSteps;
 //@UseTestDataFrom("resources/tipuriDeConcedii.csv")
 //@UseTestDataFrom("resources/AvailableFreeDays.csv")
 
-public class NewVacationTestTest {
+public class FreeDaysNumberCheckingBeforeAndAfterRequest {
 	
 	
 	

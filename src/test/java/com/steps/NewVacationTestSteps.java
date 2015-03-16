@@ -15,6 +15,7 @@ public class NewVacationTestSteps extends ScenarioSteps {
 	NewVacationTestPage newVacationTestPage;
 	
 	AcceptRejectRequstPage acceptRejectTestPage;
+	
 
 	@Step
 	public void setStartDate(int day, int month, int year)
@@ -39,6 +40,13 @@ public class NewVacationTestSteps extends ScenarioSteps {
 		System.out.println(FreeDays);
 		newVacationTestPage.click_MyFreeDaysButton();
 		Assert.assertEquals(newVacationTestPage.getFreeDays(), FreeDays);
+	}
+	//
+	//
+	//
+	@Step
+	public int getInboxNumber(){
+		return acceptRejectTestPage.getInboxNumber();
 	}
 //
 //
