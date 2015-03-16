@@ -27,6 +27,7 @@ import com.steps.VacationsReportSteps;
 //@UseTestDataFrom("resources/dataDriven.csv")
 public class VacationsReportTestFilterByMonthYear {
 
+	//this test filters a vacation report by month and year - (i tried to select items from a dropdown)
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
 

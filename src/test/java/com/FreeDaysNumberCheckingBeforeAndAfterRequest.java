@@ -28,8 +28,10 @@ import com.steps.NewVacationTestSteps;
 //@UseTestDataFrom("resources/tipuriDeConcedii.csv")
 //@UseTestDataFrom("resources/AvailableFreeDays.csv")
 
-public class NewVacationTestTest {
-	
+public class FreeDaysNumberCheckingBeforeAndAfterRequest {
+
+	/*Testeaza daca se substrage numarul corect de zile libere dupa o cerere 
+	de tip Holiday si daca se adauga zilele inapoi dupa ce se da 'withdrawn' la cerere*/
 	
 	
 	@Managed(uniqueSession = true)

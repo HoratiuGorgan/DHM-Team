@@ -25,6 +25,17 @@ public class AcceptRejectRequestSteps {
 	
 	@Step
 	public void checksTheRequestsList(String employeeName, String date){
-		Assert.assertTrue("mesajul", acceptRejectRequstPage.checksTheRequestsList(employeeName, date));
+		Assert.assertTrue("Requestul nu a fost sters", acceptRejectRequstPage.checksTheRequestsList(employeeName, date));
+	}
+	
+	@Step
+	public int getInboxNumber(){
+		int initialInboxNumber = acceptRejectRequstPage.getInboxNumber();
+		return initialInboxNumber;
+	}
+	
+	@Step
+	public void logout(){
+		acceptRejectRequstPage.click_logout();
 	}
 }

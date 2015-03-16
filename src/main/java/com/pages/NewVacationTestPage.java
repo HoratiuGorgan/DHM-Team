@@ -84,10 +84,7 @@ public class NewVacationTestPage extends PageObject {
 
 	// nr de zile de concediu ramase
 	public int selectVacationDaysLeft() {
-		/*
-		 * String str2=daysLeft.replaceAll("[^0-9.]", ""); int
-		 * daysLeftJustNr=Integer.parseInt(str2);
-		 */
+
 		return getDaysLeft();
 	}
 
