@@ -4,6 +4,7 @@ import java.text.ParseException;
 
 import org.junit.Assert;
 
+import com.pages.AcceptRejectRequstPage;
 import com.pages.NewVacationTestPage;
 
 import net.thucydides.core.annotations.Step;
@@ -12,6 +13,8 @@ import net.thucydides.core.steps.ScenarioSteps;
 public class NewVacationTestSteps extends ScenarioSteps {
 
 	NewVacationTestPage newVacationTestPage;
+	
+	AcceptRejectRequstPage acceptRejectTestPage;
 
 	@Step
 	public void setStartDate(int day, int month, int year)
@@ -37,11 +40,28 @@ public class NewVacationTestSteps extends ScenarioSteps {
 		newVacationTestPage.click_MyFreeDaysButton();
 		Assert.assertEquals(newVacationTestPage.getFreeDays(), FreeDays);
 	}
+//
+//
+//
+	@Step
+	public void compareInboxNumber(int InboxNumber){
+		
+		//acceptRejectTestPage.click_Inbox();
+		Assert.assertEquals(acceptRejectTestPage.getInboxNumber(), InboxNumber);
+	}
+//
+//
+//
 	
 	@Step
 	public int getFreeDays() {
 		newVacationTestPage.click_MyFreeDaysButton();
 		return newVacationTestPage.getFreeDays();
+	}
+	
+	@Step
+	public void click_logout(){
+		acceptRejectTestPage.click_logout();
 	}
 	
 	@Step

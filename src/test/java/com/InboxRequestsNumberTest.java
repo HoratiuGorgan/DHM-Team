@@ -17,6 +17,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import com.pages.AcceptRejectRequstPage;
 import com.requirements.Application;
 import com.requirements.Constants;
 import com.steps.LoginSteps;
@@ -25,12 +26,8 @@ import com.steps.NewVacationTestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-//@UseTestDataFrom("resources/tipuriDeConcedii.csv")
-//@UseTestDataFrom("resources/AvailableFreeDays.csv")
 
-public class NewVacationTestTest {
-	
-	
+public class InboxRequestsNumberTest {
 	
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -44,31 +41,42 @@ public class NewVacationTestTest {
 	@Steps
 	public LoginSteps loginSteps;
 	
-	//String tipDeConcediu;
-	
-	//int AvailableFreeDays;
+	@Steps
+	public AcceptRejectRequstPage acceptRejectRequstPage;
 	
 	@Test
-	public void pick_a_date() throws ParseException{
+	public void checkInboxRequestNumber() throws ParseException{
+		
+		loginSteps.login("dragoscampean", "Dragos.campean19");
+		loginSteps.opens_vacation_tab();
+		int initialInboxNumber = acceptRejectRequstPage.getInboxNumber();
+		acceptRejectRequstPage.click_logout();
+		
+		
 		loginSteps.login("horatiugorgan1", "Evozon.2010");
 		loginSteps.opens_vacation_tab();
-		
-		int initialFreeDays = newVacationTestSteps.getFreeDays();
-		
 		newVacationTestSteps.new_vacation_open();
-		newVacationTestSteps.setStartDate(5, 11, 2015);
-		newVacationTestSteps.setEndDate(6, 11, 2015);
-		//newVacationTestSteps.clickVacationTypeCheckbox(tipDeConcediu);
+		newVacationTestSteps.setStartDate(25, 3, 2015);
+		newVacationTestSteps.setEndDate(27, 3, 2015);
 		newVacationTestSteps.createANewVacation();
-		String requestURL = newVacationTestSteps.getBrowserURL();
+		acceptRejectRequstPage.click_logout();
+		loginSteps.login("dragoscampean", "Dragos.campean19");
+		loginSteps.opens_vacation_tab();
 		
-		newVacationTestSteps.compareFreeDays(initialFreeDays - 2);
+	//	int initialInboxNumber = acceptRejectRequstPage.getInboxNumber();
 		
-		newVacationTestSteps.navigateTo(requestURL);
 		
-		newVacationTestSteps.click_WithdrawVacation();
-		//newVacationTestSteps.click_MyFreeDays();
-		newVacationTestSteps.compareFreeDays(initialFreeDays);
+		//newVacationTestSteps.new_vacation_open();
+		
+	/*	newVacationTestSteps.setStartDate(25, 3, 2015);
+		newVacationTestSteps.setEndDate(27, 3, 2015);
+		newVacationTestSteps.createANewVacation();*/
+		loginSteps.opens_vacation_tab();
+		newVacationTestSteps.compareInboxNumber(initialInboxNumber + 1);
+		
+		
 	}
+	
+	
 
 }
