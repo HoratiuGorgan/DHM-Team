@@ -20,6 +20,7 @@ import org.openqa.selenium.WebDriver;
 import com.pages.AcceptRejectRequstPage;
 import com.requirements.Application;
 import com.requirements.Constants;
+import com.steps.AcceptRejectRequestSteps;
 import com.steps.LoginSteps;
 import com.steps.ViewVacationsSteps;
 import com.steps.NewVacationTestSteps;
@@ -42,24 +43,26 @@ public class InboxRequestsNumberTest {
 	public LoginSteps loginSteps;
 	
 	@Steps
-	public AcceptRejectRequstPage acceptRejectRequstPage;
+	public AcceptRejectRequestSteps acceptRejectRequestSteps;
+	
+	/*@Steps
+	public AcceptRejectRequstPage acceptRejectRequstPage;*/
 	
 	@Test
 	public void checkInboxRequestNumber() throws ParseException{
 		
 		loginSteps.login("dragoscampean", "Dragos.campean19");
 		loginSteps.opens_vacation_tab();
-		int initialInboxNumber = acceptRejectRequstPage.getInboxNumber();
-		acceptRejectRequstPage.click_logout();
-		
+		int initialInboxNumber = acceptRejectRequestSteps.getInboxNumber();
+		acceptRejectRequestSteps.logout();
 		
 		loginSteps.login("horatiugorgan1", "Evozon.2010");
 		loginSteps.opens_vacation_tab();
 		newVacationTestSteps.new_vacation_open();
-		newVacationTestSteps.setStartDate(25, 3, 2015);
-		newVacationTestSteps.setEndDate(27, 3, 2015);
+		newVacationTestSteps.setStartDate(24, 3, 2015);
+		newVacationTestSteps.setEndDate(24, 3, 2015);
 		newVacationTestSteps.createANewVacation();
-		acceptRejectRequstPage.click_logout();
+		acceptRejectRequestSteps.logout();
 		loginSteps.login("dragoscampean", "Dragos.campean19");
 		loginSteps.opens_vacation_tab();
 		
@@ -71,7 +74,7 @@ public class InboxRequestsNumberTest {
 	/*	newVacationTestSteps.setStartDate(25, 3, 2015);
 		newVacationTestSteps.setEndDate(27, 3, 2015);
 		newVacationTestSteps.createANewVacation();*/
-		loginSteps.opens_vacation_tab();
+		//loginSteps.opens_vacation_tab();
 		newVacationTestSteps.compareInboxNumber(initialInboxNumber + 1);
 		
 		
