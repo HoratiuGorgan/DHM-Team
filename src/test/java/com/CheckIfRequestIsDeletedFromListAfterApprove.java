@@ -51,7 +51,7 @@ public class CheckIfRequestIsDeletedFromListAfterApprove {
 	@Steps
 	public LoginSteps loginSteps;
 	
-	
+	//data from the CSV
 	String startDate, employeeName;
 	
 	@Test
@@ -59,9 +59,9 @@ public class CheckIfRequestIsDeletedFromListAfterApprove {
 		loginSteps.login("dragoscampean", "Dragos.campean19");
 		loginSteps.opens_vacation_tab();
 		acceptRejectRequestSteps.clickInbox();
-		acceptRejectRequestSteps.goThroughRequestsList("horatiu gorgan", startDate);
+		acceptRejectRequestSteps.goThroughRequestsList(employeeName, startDate);
 		acceptRejectRequestSteps.clickApprove();
-		acceptRejectRequestSteps.checksTheRequestsList("horatiu gorgan", startDate);
+		acceptRejectRequestSteps.checksTheRequestsList(employeeName, startDate);
 		
 		
 	}

@@ -25,7 +25,7 @@ public class AcceptRejectRequestSteps {
 	
 	@Step
 	public void checksTheRequestsList(String employeeName, String date){
-		Assert.assertTrue("mesajul", acceptRejectRequstPage.checksTheRequestsList(employeeName, date));
+		Assert.assertTrue("Requestul nu a fost sters", acceptRejectRequstPage.checksTheRequestsList(employeeName, date));
 	}
 	
 	@Step
