@@ -19,7 +19,7 @@ import com.steps.NewVacationTestSteps;
 public class CheckVacationDaysLeftButtonTest {
 
 	
-	
+	//this test checks if the blue button from 'New Vacations Request', showing the vacations days left works correctly(days are substracted accordingly after a vacation request)
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 	
@@ -45,9 +45,7 @@ public class CheckVacationDaysLeftButtonTest {
 		newVacationTestSteps.new_vacation_open();
 		newVacationTestSteps.setStartDate(20, 4, 2015);
 		newVacationTestSteps.setEndDate(21, 4, 2015);
-		
 		newVacationTestSteps.createANewVacation();
-
 		newVacationTestSteps.new_vacation_open();
 		loginSteps.daysDifference();
 		

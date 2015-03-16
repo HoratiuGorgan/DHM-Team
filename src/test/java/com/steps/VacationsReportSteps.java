@@ -2,7 +2,7 @@ package com.steps;
 
 import org.junit.Assert;
 
-import com.NewVacationTestTest;
+//import com.NewVacationTestTest;
 import com.google.protobuf.TextFormat.ParseException;
 import com.pages.LoginPage;
 import com.pages.VacationsReportPage;
@@ -24,7 +24,7 @@ import static org.hamcrest.Matchers.hasItem;
 public class VacationsReportSteps extends ScenarioSteps {
 
     VacationsReportPage vacationsReportPage;
-    NewVacationTestTest newVacation;
+    //NewVacationTestTest newVacation;
 
     
     @Step
