@@ -51,8 +51,9 @@ public class CheckIfRequestIsDeletedFromListAfterApprove {
 	@Steps
 	public LoginSteps loginSteps;
 	
-	
 	String startDate, employeeName;
+	
+	
 	
 	@Test
 	public void testIfRequestIsDeleted(){
