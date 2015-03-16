@@ -28,6 +28,9 @@ import com.steps.NewVacationTestSteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
 
+/*Testeaza daca la sectiunea Inbox(n) unde n=nr de requesturi se adauga 1 
+dupa ce se face o cerere de concediu*/
+
 public class InboxRequestsNumberTest {
 	
 	@Managed(uniqueSession = true)

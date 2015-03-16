@@ -24,7 +24,6 @@ import static org.hamcrest.Matchers.hasItem;
 public class VacationsReportSteps extends ScenarioSteps {
 
     VacationsReportPage vacationsReportPage;
-    //NewVacationTestTest newVacation;
 
     
     @Step
