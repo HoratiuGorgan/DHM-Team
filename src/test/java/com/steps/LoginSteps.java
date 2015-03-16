@@ -8,6 +8,7 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.steps.ScenarioSteps;
 
+import com.google.protobuf.TextFormat.ParseException;
 import com.pages.LoginPage;
 import com.pages.NewVacationTestPage;
 
@@ -22,13 +23,10 @@ public class LoginSteps extends ScenarioSteps {
     	loginPage.enter_username(username);
     }
 
-    
     @Step
     public void enter_password(String password) {
     	loginPage.enter_password(password);
     }
-    
-    
 
 /*    public void compareDays(){
     	Assert.assertEquals("The two are no equal ^_^", daysNr, daysLeftJustNr);
@@ -39,7 +37,7 @@ public class LoginSteps extends ScenarioSteps {
     	loginPage.login_click();
     	
     }
-
+    
     @Step
     public void is_the_login_page() {
         loginPage.open();
@@ -71,6 +69,11 @@ public class LoginSteps extends ScenarioSteps {
     @Step
     public void daysDifference(){
     	Assert.assertEquals(newVacationTestPage.daysDifference(), newVacationTestPage.selectVacationDaysLeft());
+    }
+
+    @Step
+    public void selectsTheRequestedPage(String myPage){
+    	loginPage.selectsTheRequestedPage(myPage);
     }
     
     

@@ -10,11 +10,13 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.junit.annotations.UseTestDataFrom;
 import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 import net.thucydides.junit.runners.ThucydidesRunner;
+import org.openqa.selenium.StaleElementReferenceException;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import com.google.protobuf.TextFormat.ParseException;
 import com.requirements.Application;
 import com.requirements.Constants;
 import com.steps.LoginSteps;
@@ -23,7 +25,7 @@ import com.steps.VacationsReportSteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("resources/dataDriven.csv")
-// checks if we are on the correct page after clicking it
+//this test checks if we are directed on the correct page after clicking it
 public class ChecksIfItIsTheCorrectPageTest {
 
     @Managed(uniqueSession = true)
@@ -37,18 +39,15 @@ public class ChecksIfItIsTheCorrectPageTest {
     @Steps
     public LoginSteps loginSteps;
 
-    public String username,password,pageTitle;
+    public String username,password,pageName, pageTitle;
    // @Issue("#VACATION-1")
     
+    //gets user and password from the constants class and page title from the defined csv
     @Test 
-    public void search_vacations_report_action() throws InterruptedException{
+    public void search_vacations_report_action() {
     	loginSteps.login(Constants.USER, Constants.PASSWORD);
-
     	loginSteps.opens_vacation_tab();
-    	vacationReportSteps.clicksViewVacations();
-    	vacationReportSteps.pageTitleCheck(pageTitle);
-
-
+    	loginSteps.selectsTheRequestedPage(pageName);
     	
     }
     
