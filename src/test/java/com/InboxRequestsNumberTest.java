@@ -59,7 +59,7 @@ public class InboxRequestsNumberTest {
 
 		loginSteps.login("horatiugorgan1", "Evozon.2010");
 		loginSteps.opensVacationTab();
-		newVacationTestSteps.new_vacation_open();
+		newVacationTestSteps.newVacationOpen();
 		newVacationTestSteps.setStartDate(24, 3, 2015);
 		newVacationTestSteps.setEndDate(24, 3, 2015);
 		newVacationTestSteps.createANewVacation();

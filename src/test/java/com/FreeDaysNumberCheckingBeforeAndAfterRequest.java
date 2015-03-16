@@ -56,7 +56,7 @@ public class FreeDaysNumberCheckingBeforeAndAfterRequest {
 		loginSteps.login("horatiugorgan1", "Evozon.2010");
 		loginSteps.opensVacationTab();
 		int initialFreeDays = newVacationTestSteps.getFreeDays();
-		newVacationTestSteps.new_vacation_open();
+		newVacationTestSteps.newVacationOpen();
 		newVacationTestSteps.setStartDate(5, 11, 2015);
 		newVacationTestSteps.setEndDate(6, 11, 2015);
 		// newVacationTestSteps.clickVacationTypeCheckbox(tipDeConcediu);
@@ -66,7 +66,7 @@ public class FreeDaysNumberCheckingBeforeAndAfterRequest {
 
 		newVacationTestSteps.navigateTo(requestURL);
 
-		newVacationTestSteps.click_WithdrawVacation();
+		newVacationTestSteps.clickWithdrawVacation();
 		// newVacationTestSteps.click_MyFreeDays();
 		newVacationTestSteps.compareFreeDays(initialFreeDays);
 	}

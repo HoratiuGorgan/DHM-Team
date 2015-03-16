@@ -47,7 +47,7 @@ public class MailTest {
 	@Test
 	public void checkingIfMailWasReceived() throws ParseException, MessagingException, IOException{
 		loginTest.login_action();
-		newVacationTestSteps.new_vacation_open();
+		newVacationTestSteps.newVacationOpen();
 		newVacationTestSteps.setStartDate(6, 4, 2015);
 		newVacationTestSteps.setEndDate(8, 4, 2015);
 		newVacationTestSteps.createANewVacation();

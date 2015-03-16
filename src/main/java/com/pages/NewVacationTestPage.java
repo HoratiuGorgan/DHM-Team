@@ -164,7 +164,7 @@ public class NewVacationTestPage extends PageObject {
 		myFreeDaysButton.click();
 	}
 
-	public void open_newVacation() {
+	public void newVacationOpen() {
 		newVacationRequest.click();
 	}
 
@@ -176,7 +176,7 @@ public class NewVacationTestPage extends PageObject {
 		submitVacation.click();
 	}
 
-	public void click_WithdrawVacation() {
+	public void clickWithdrawVacation() {
 		withdrawButton.click();
 	}
 

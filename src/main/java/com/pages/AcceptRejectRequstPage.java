@@ -40,7 +40,7 @@ public class AcceptRejectRequstPage extends PageObject {
 	@FindBy(css = "a[href='/c/portal/logout']")
 	public WebElementFacade logout;
 
-	public void click_logout() {
+	public void clickLogout() {
 		logout.click();
 	}
 
