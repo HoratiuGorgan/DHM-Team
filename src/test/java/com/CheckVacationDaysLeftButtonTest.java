@@ -44,8 +44,8 @@ public class CheckVacationDaysLeftButtonTest {
 		loginSteps.login("dragoscampean", "Dragos.campean19");
 		loginSteps.opensVacationTab();
 		newVacationTestSteps.newVacationOpen();
-		newVacationTestSteps.setStartDate(20, 4, 2015);
-		newVacationTestSteps.setEndDate(21, 4, 2015);
+		newVacationTestSteps.setStartDate(27, 4, 2015);
+		newVacationTestSteps.setEndDate(28, 4, 2015);
 		newVacationTestSteps.createANewVacation();
 		newVacationTestSteps.newVacationOpen();
 		loginSteps.daysDifference();
