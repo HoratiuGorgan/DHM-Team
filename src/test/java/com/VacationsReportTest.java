@@ -21,7 +21,8 @@ import com.steps.VacationsReportSteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
 public class VacationsReportTest {
-
+	//1.exports a report after filtering (first/last names).
+	//2.opens the exported file and checks the data inside to correspond with the filtered criteria - not done yet.
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
